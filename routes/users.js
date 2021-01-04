@@ -4,7 +4,7 @@ var router = express.Router();
 
 const { asyncHandler, csrfProtection } = require('../utils/utils.js')
 const db = require('../db/models')
-const { check, validationResults } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 
 
@@ -35,7 +35,7 @@ const userValidators = [
     .isLength({max: 255})
     .withMessage('Email must be less than 255 characters.')
     .custom((value) => {
-    return db.User.findOne({ where: { emailAddress: value } })
+    return db.User.findOne({ where: { email: value } })
       .then((user) => {
         if (user) {
           return Promise.reject('The provided Email Address is already in use by another account');
@@ -74,7 +74,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
     username
   })
 
-  const validatorErrors = validationResults(req)
+  const validatorErrors = validationResult(req)
 
   if(validatorErrors.isEmpty()){
     const hashedPassword = await bcrypt.hash(password, 10)
