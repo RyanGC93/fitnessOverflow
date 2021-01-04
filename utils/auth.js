@@ -6,7 +6,11 @@ const loginUser = (req, res, user) =>{
     }
 }
 
-const restoreUser = async(req,res,next)=>{
+const logoutUser = (req, res, user) => {
+    delete req.session.auth
+}
+
+const restoreUser = async(req,res,next) => {
     console.log(req.session)
     if(req.session.auth){
         const {userId} = req.session.auth
@@ -29,6 +33,13 @@ const restoreUser = async(req,res,next)=>{
 
 }
 
+const requireAuth = (req, res, next){
+    if (!res.locals.authenticated) {
+        return res.redirect('/users/login')
+    }
+    return next()
+}
+
 module.exports = {
-    loginUser, restoreUser
+    loginUser, restoreUser, logoutUser, requireAuth
 }
