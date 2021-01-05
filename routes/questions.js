@@ -64,4 +64,10 @@ router.post('/ask', requireAuth, csrfProtection, questionValidators, asyncHandle
 }))
 
 
+router.get('/:id', requireAuth, asyncHandler(async (req, res) =>{
+    const question = await db.Question.findByPk(req.params.id)
+    const answers = await db.Answer.findAll({where: {questionId: req.params.id }})
+    res.render('show-question', {title: `Question ${req.params.id}`, question, answers})
+}))
+
 module.exports = router
