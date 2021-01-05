@@ -7,8 +7,10 @@ const { asyncHandler, csrfProtection } = require('../utils/utils.js')
 const db = require('../db/models')
 const { check, validationResult } = require('express-validator');
 
-router.get('/search?search=:query', requireAuth, asyncHandler(async (req,res) =>{
-    const questions = await db.Question.findAll({ order: [['createdAt', 'ASC']], where: { title: { [Op.like]: req.params.query } } })
+router.get('/search', requireAuth, asyncHandler(async (req,res) =>{
+    const queryTerm = req.query.search
+    console.log(queryTerm, typeof queryTerm)
+    const questions = await db.Question.findAll({  where: { title: { [Op.iLike]: `%${queryTerm}%` } } })
     res.render('index', {title: "Home", questions})
 }))
 
