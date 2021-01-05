@@ -8,4 +8,9 @@ append head
 
 block content
   h1= title
-  p Welcome to your Project Skeleton
+  p(class="welcome") Welcome to Fitness Overflow
+  h2(class="indexHeader") List of Questions
+  ul
+    each question in questions
+      a(href=`/questions/${question.id}` class="question")
+        li= question.body
