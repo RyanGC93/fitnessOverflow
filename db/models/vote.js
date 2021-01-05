@@ -9,11 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     Vote.belongsTo(models.User, {
       foreignKey: "userId"
     })
-<<<<<<< HEAD
-    Vote.belongsTo(models.Answer, {
-=======
   Vote.belongsTo(models.Answer, {
->>>>>>> main
       foreignKey: "answerId"
     } )
   };
