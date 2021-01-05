@@ -6,12 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     voteType: DataTypes.STRING
   }, {});
   Vote.associate = function(models) {
-    Votes.belongsTo(models.User, {
+    Vote.belongsTo(models.User, {
       foreignKey: "userId"
     })
-    Votes.belongsTo(models.Answer, {
+    Vote.belongsTo(models.Answer, {
       foreignKey: "answerId"
-    } )    
+    } )
   };
   return Vote;
 };

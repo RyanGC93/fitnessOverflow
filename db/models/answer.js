@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     Answer.belongsTo(models.Question, {
       foreignKey: "questionId"
     })
-    Answer.hasMany(models.Votes, {
+    Answer.hasMany(models.Vote, {
       foreignKey: "answerId"
     })
   };
