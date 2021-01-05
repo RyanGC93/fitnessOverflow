@@ -63,14 +63,65 @@ router.post('/ask', requireAuth, csrfProtection, questionValidators, asyncHandle
     }
 }))
 
+router.get('/:id(\\d+)/edit', csrfProtection,
+    asyncHandler(async (req, res) => {
+        const questionId = parseInt(req.params.id, 10);
+        const question = await db.Question.findByPk(questionId);
+        const { userId } = req.session.auth
+        console.log("userId:",userId)
+        console.log("authorId:",question.authorId)
+        res.render('edit-question', {
+            title: 'Edit Question',
+            question,
+            userId,
+            csrfToken: req.csrfToken(),
+        });
+    }));
 
-router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
+
+router.post('/:id(\\d+)/edit', csrfProtection, questionValidators,
+    asyncHandler(async (req, res) => {
+        const questionId = parseInt(req.params.id, 10);
+        const questionToUpdate = await db.Question.findByPk(questionId);
+        const {
+            title,
+            body
+        } = req.body;
+
+        const { userId } = req.session.auth
+
+        const question = {
+            title,
+            body,
+            authorId: userId
+        };
+
+        const validatorErrors = validationResult(req);
+
+        if (validatorErrors.isEmpty()) {
+            await questionToUpdate.update(question);
+            res.redirect(`/questions/${questionId}`);
+        } else {
+            const errors = validatorErrors.array().map((error) => error.msg);
+            res.render('edit-question', {
+                title: 'Edit Question',
+                question: { ...question, id: questionId },
+                errors,
+                csrfToken: req.csrfToken(),
+            });
+        }
+    }));
+
+
+router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
     const questionId = parseInt(req.params.id, 10)
-    const {userId} = req.session.auth
+    const { userId } = req.session.auth
     const question = await db.Question.findByPk(questionId)
-    const answers = await db.Answer.findAll({where: {questionId: questionId}})
-    res.render('show-question', {title: `Question ${questionId}`, question, answers, csrfToken: req.csrfToken(), userId})
+    const answers = await db.Answer.findAll({ where: { questionId: questionId } })
+    res.render('show-question', { title: `Question ${questionId}`, question, answers, csrfToken: req.csrfToken(), userId })
 }))
+
+
 
 router.get('/:id(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
     const questionId = parseInt(req.params.id, 10)
@@ -85,5 +136,4 @@ router.post('/:id(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async
     await question.destroy()
     res.redirect('/')
 }))
-
 module.exports = router
