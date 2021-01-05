@@ -63,5 +63,50 @@ router.post('/ask', requireAuth, csrfProtection, questionValidators, asyncHandle
     }
 }))
 
+router.get('/edit/:id(\\d+)', csrfProtection,
+    asyncHandler(async (req, res) => {
+        const questionId = parseInt(req.params.id, 10);
+        const question = await db.Question.findByPk(questionId);
+        res.render('edit-question', {
+            title: 'Edit Question',
+            question,
+            csrfToken: req.csrfToken(),
+        });
+    }));
+
+
+router.post('/edit/:id(\\d+)', csrfProtection, questionValidators,
+    asyncHandler(async (req, res) => {
+        const questionId = parseInt(req.params.id, 10);
+        const questionToUpdate = await db.Question.findByPk(questionId);
+        const {
+            title,
+            body
+        } = req.body;
+
+        const { userId } = req.session.auth
+
+        const park = {
+            title,
+            body,
+            authorId: userId
+        };
+
+        const validatorErrors = validationResult(req);
+
+        if (validatorErrors.isEmpty()) {
+            await questionToUpdate.update(question);
+            res.redirect(`/questions/${questionId}`);
+        } else {
+            const errors = validatorErrors.array().map((error) => error.msg);
+            res.render('edit-question', {
+                title: 'Edit Question',
+                question: { ...question, id: questionId },
+                errors,
+                csrfToken: req.csrfToken(),
+            });
+        }
+    }));
+
 
 module.exports = router
