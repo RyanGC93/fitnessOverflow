@@ -8,9 +8,9 @@ block content
   form(action='/questions/ask' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Title', 'title', question.title)
-  div
-    label(for="body") Question
-    textarea(id="body" name="body")= question.body
-  div
+    div
+     label(for="body") Question
+     textarea(id="body" name="body")= question.body
+    div
       button(type='submit') Post Question
       a(href='/') Cancel
