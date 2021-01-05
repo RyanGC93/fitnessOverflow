@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     Vote.belongsTo(models.User, {
       foreignKey: "userId"
     })
+
   Vote.belongsTo(models.Answer, {
       foreignKey: "answerId"
-    } )    
+    } )
   };
   return Vote;
 };

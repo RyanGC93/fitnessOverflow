@@ -65,7 +65,7 @@ const userValidators = [
   }),
 ]
 
-router.post('/register', csrfProtection, userValidators, asyncHandler(async (req, res) =>{
+router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, res) =>{
   const {
     email,
     username,
@@ -116,7 +116,7 @@ const loginValidators = [
 ]
 
 
-router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, res) => { 
+router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, res) => {
   const {
     email,
     password
@@ -124,7 +124,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
 
   let errors =[]
   const validatorErrors = validationResult(req)
-  
+
   if (validatorErrors.isEmpty()) {
     const user = await db.User.findOne({
       where: {email}
@@ -136,20 +136,20 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
         return res.redirect('/')
       }
     }
-  errors.push('Login Failed For The Password and Email')  
+  errors.push('Login Failed For The Password and Email')
   } else {
     errors = validatorErrors.array().map((error) => error.msg)
-    
+
   }
   res.render('user-login', {
     title: "Login",
-    email, 
+    email,
     errors,
     csrfToken: req.csrfToken()
 })
 }))
 
-router.post('/logout', (req, res) => { 
+router.post('/logout', (req, res) => {
   logoutUser(req, res)
   res.redirect('/users/login')
 })
