@@ -64,10 +64,26 @@ router.post('/ask', requireAuth, csrfProtection, questionValidators, asyncHandle
 }))
 
 
-router.get('/:id', requireAuth, asyncHandler(async (req, res) =>{
-    const question = await db.Question.findByPk(req.params.id)
-    const answers = await db.Answer.findAll({where: {questionId: req.params.id }})
-    res.render('show-question', {title: `Question ${req.params.id}`, question, answers})
+router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
+    const questionId = parseInt(req.params.id, 10)
+    const {userId} = req.session.auth
+    const question = await db.Question.findByPk(questionId)
+    const answers = await db.Answer.findAll({where: {questionId: questionId}})
+    res.render('show-question', {title: `Question ${questionId}`, question, answers, csrfToken: req.csrfToken(), userId})
+}))
+
+router.get('/:id(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
+    const questionId = parseInt(req.params.id, 10)
+    const question = await db.Question.findByPk(questionId)
+    const {userId} = req.session.auth
+    res.render('delete-question', {title: "Delete Question", question, userId, csrfToken: req.csrfToken()})
+}))
+
+router.post('/:id(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
+    const questionId = parseInt(req.params.id, 10)
+    const question = await db.Question.findByPk(questionId)
+    await question.destroy()
+    res.redirect('/')
 }))
 
 module.exports = router
