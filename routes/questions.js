@@ -121,4 +121,19 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     res.render('show-question', { title: `Question ${questionId}`, question, answers, csrfToken: req.csrfToken(), userId })
 }))
 
+
+
+router.get('/:id(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
+    const questionId = parseInt(req.params.id, 10)
+    const question = await db.Question.findByPk(questionId)
+    const {userId} = req.session.auth
+    res.render('delete-question', {title: "Delete Question", question, userId, csrfToken: req.csrfToken()})
+}))
+
+router.post('/:id(\\d+)/delete', requireAuth, csrfProtection, asyncHandler(async (req, res) =>{
+    const questionId = parseInt(req.params.id, 10)
+    const question = await db.Question.findByPk(questionId)
+    await question.destroy()
+    res.redirect('/')
+}))
 module.exports = router

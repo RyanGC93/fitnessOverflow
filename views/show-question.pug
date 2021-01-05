@@ -9,3 +9,8 @@ block content
     ul
         each answer in answers
             li= answer.body
+    if (userId === question.authorId)
+        div
+            p: a(href=`/questions/${question.id}/edit`) Edit this question?
+        div
+            p: a(href=`/questions/${question.id}/delete`) Delete this question?
