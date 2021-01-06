@@ -16,66 +16,76 @@ const voteValidators = [
 ]
 
 
-router.route('/votes')
+router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/upvotes')
  	.patch( asyncHandler(async (req,res)=>{
-	 	const answerId = parseInt(req.params.id, 10)
+		 const questionId = parseInt(req.params.id, 10)
+		  const answerId = parseInt(req.params.id2, 10)
 	    const { userId } = req.session.auth
 	    const upvotes = await db.Vote.findAll({
 	    	where: {
-	    	id: answerId,
+			answerId,
 	    	voteType: "upvote"
 	    	}
 	    })
 	    const downvotes = await db.Vote.findAll({
-	    	attributes:['voteTypes'],
 	    	where: {
-	    	id: answerId,
+			answerId,
 	    	voteType: "downvote"
 	    	}
-        })
-          console.log(downvotes)
-	    let totalUpVotes= upvotes.length
-	    let totalDownVotes= downvotes.length
-	    const question = db.Vote.build()
-	    res.render('create-question', {
-	        title: '',
-	        question,
-	        csrfToken: req.csrfToken()
-	    })
+		})
+
+        //   console.log(downvotes)
+	    let totalUpVotes= upvotes.length + 1
+		let totalDownVotes= downvotes.length
+		let totalVotes = (totalUpvotes - totalDownvotes)
+
+	    const vote = db.Vote.build({
+			userId,
+			answerId,
+			voteType: "upvote"
+		})
+
+		await vote.save()
+
+		res.json({
+			title: 'Question',
+			answerId,
+			totalVotes
+		})
 	}))
-	.post(requireAuth, csrfProtection, voteValidators, asyncHandler(async (req, res) => {
-	    const {
-	        
-	    } = req.body
-	
-	    const answerId = parseInt(req.params.id, 10)
-	    const { userId } = req.session.auth
-	    const question = await db.Question.findByPk(questionId)
-	
-	    const newVote = db.Vote.build({
-	        body,
-	        userId: userId,
-	        voteType
-	    })
-	
-	    const validatorErrors = validationResult(req)
-	
-	    if (validatorErrors.isEmpty()) {
-	        await answer.save();
-	        res.redirect(`/questions/${questionId}`)
-	    }
-	    else {
-	        const errors = validatorErrors.array().map((error) => error.msg)
-	        res.render('answer-question', {
-	            title: `Answer question ${questionId}`,
-	            answer,
-	            question,
-	            errors,
-	            csrfToken: req.csrfToken(),
-	        })
-	    }
-	}))
+
+
+	// .post(requireAuth, csrfProtection, voteValidators, asyncHandler(async (req, res) => {
+	//     const {
+
+	//     } = req.body
+
+	//     const answerId = parseInt(req.params.id, 10)
+	//     const { userId } = req.session.auth
+	//     const question = await db.Question.findByPk(questionId)
+
+	//     const newVote = db.Vote.build({
+	//         body,
+	//         userId: userId,
+	//         voteType
+	//     })
+
+	//     const validatorErrors = validationResult(req)
+
+	//     if (validatorErrors.isEmpty()) {
+	//         await answer.save();
+	//         res.redirect(`/questions/${questionId}`)
+	//     }
+	//     else {
+	//         const errors = validatorErrors.array().map((error) => error.msg)
+	//         res.render('answer-question', {
+	//             title: `Answer question ${questionId}`,
+	//             answer,
+	//             question,
+	//             errors,
+	//             csrfToken: req.csrfToken(),
+	//         })
+	//     }
+	// }))
 
 module.exports = router
-
-
