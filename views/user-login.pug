@@ -3,13 +3,15 @@ extends layout.pug
 include utils.pug
 
 block content
+ .container
+  h1(class="title") Login
   +validationErrorSummary(errors)
-  form(action='/users/login' method='post')
+  form(class="auth-form" action='/users/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Email', 'email', email)
     +field('Password', 'password', null, 'password')
     div
-      button(type='submit' ) Login
+      button(class="btn" type='submit' ) Login
       a(href='/') Cancel
-    div
-        p: a(href='/users/signup') Don't have an account?
+  div
+    P: a(href='/users/signup' class="linked") Don't have an account?

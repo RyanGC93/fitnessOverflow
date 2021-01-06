@@ -4,13 +4,17 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/index.css')
   body
     if locals.authenticated
           span Welcome #{user.username}!
-          form(action='/users/logout' method='post')
-            button(type='submit') Logout
+          form(class="auth-form" action='/users/logout' method='post')
+            button(class="btn" type='submit') Logout
     else
-          span
-            a(href='/users/login') Login
-            a(href='/users/signup') Register
+        .navbar
+          span(class="navbar-1")
+            p(class="nav-link-1") Fitness Overflow
+          span(class="navbar-2")
+            a(href='/users/login' class="nav-link-1") Login
+            a(href='/users/signup' class="nav-link-1") Register
     block content
