@@ -12,18 +12,37 @@ h1 {
     justify-content: center;
 }
 
-.question{
+.questionLink{
     color: blue;
     display: flex;
     justify-content: center;
 }
 
-.questionContainer{
+.questionLink:visited{
+    color: blueviolet;
+}
+
+.question{
+    box-sizing: border-box;
     border: 1px solid black;
     width: 60%;
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
-    padding: 3px;
+    padding: 15px;
+    padding-top: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: rgb(235, 233, 226);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 115%;
+
+}
+
+.question:hover{
+    border: 3px solid black;
+    
+
 }
 
 .info{
@@ -48,6 +67,7 @@ h1 {
 }
 .nav-link-2 {
     padding: 1rem;
+
 
 }
 /*
@@ -108,4 +128,8 @@ input {
     flex-direction: column;
     width:25%;
     margin:auto;
+}
+
+.logout{
+    height: 50%;
 }

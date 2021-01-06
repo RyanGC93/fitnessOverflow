@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 
 router.get('/api/search', requireAuth, asyncHandler(async (req,res) =>{
     const queryTerm = req.query.search
-    const questions = await db.Question.findAll({ order: [['createdAt', 'DESC']], where: { title: { [Op.iLike]: `%${queryTerm}%` } } })
+    const questions = await db.Question.findAll({include: [db.User, db.Answer], order: [['createdAt', 'DESC']], where: { title: { [Op.iLike]: `%${queryTerm}%` } } })
     res.json({questions})
 }))
 

@@ -10,21 +10,21 @@ append head
 
 block content
   div(class="navbar")
-    p(class="welcome") Welcome to Fitness Overflow
+    
     div
       input(type="text" class="search" name="search" id="search" placeholder="Search...")
       button(type='button' id="searchButton" ) Search for Questions
     a(href="/questions/ask")
       input(type='button' value="Ask a Question")
-  h2(class="indexHeader") List of Questions
-  div(id="questionContainer")
+  h2(class="indexHeader")
+  div(id="questionsContainer")
     each question in questions
-      div(class="questionContainer")
-        a(href=`/questions/${question.id}` class="question") Q: #{question.title}
+      div(class="question")
+        a(href=`/questions/${question.id}` class="questionLink") Q: #{question.title}
         p= question.body
         div
           if(question.Answers)
             div(class="answers") Answers: #{question.Answers.length}
           else
             div(class="answers") Answers: 0
-          div(class="info") asked #{question.createdAt.toString().slice(0,15)} by #{question.User.username}
+          div(class="info") asked at #{question.createdAt.toString().slice(0,15)} by #{question.User.username}
