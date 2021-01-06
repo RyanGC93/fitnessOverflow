@@ -17,11 +17,14 @@ block content
     a(href="/questions/ask")
       input(type='button' value="Ask a Question")
   h2(class="indexHeader") List of Questions
-  ul(id="questionContainer")
+  div(id="questionContainer")
     each question in questions
-      li(class="questionContainer")
-        a(href=`/questions/${question.id}` class="question")
-          p Q: #{question.title}
+      div(class="questionContainer")
+        a(href=`/questions/${question.id}` class="question") Q: #{question.title}
         p= question.body
         div
-          div(class="info") asked #{question.createdAt} by #{question.userId}
+          if(question.Answers)
+            div(class="answers") Answers: #{question.Answers.length}
+          else
+            div(class="answers") Answers: 0
+          div(class="info") asked #{question.createdAt.toString().slice(0,15)} by #{question.User.username}

@@ -8,7 +8,8 @@ const { check, validationResult } = require('express-validator');
 
 /* GET home page. */
 router.get('/', requireAuth, asyncHandler(async (req,res) =>{
-    const questions = await db.Question.findAll({ order: [['createdAt', 'DESC']]})
+    const questions = await db.Question.findAll({ include: [db.User, db.Answer] , order: [['createdAt', 'DESC']]})
+    console.log(questions[0])
     res.render('index', {title: "Home", questions})
 }))
 

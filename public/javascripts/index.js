@@ -7,9 +7,33 @@ window.addEventListener("DOMContentLoaded", (event)=>{
         let questionContainer = document.getElementById('questionContainer')
         questionContainer.innerHTML = ""
         questions.forEach(question =>{
-            let ele = document.createElement('li')
-            ele.innerHTML = question.title
-            ele.classList.add('question')
+            let container = document.createElement('div')
+            ele.classList.add('questionContainer')
+
+            let link = document.createElement('a')
+            link.href = `/questions/${question.id}`
+            link.classList.add('question')
+            link.innerText = `Q: ${question.title}`
+
+            let body = document.createElement('p')
+            body.innerText = question.body
+
+            let infoLine = document.createElement('div')
+            let answerCount = document.createElement('div')
+            if(questions.Answers){
+                answerCount.innerText = questions.Answers.length
+            }
+            else{
+                answerCount.innerText = 0
+            }
+            let askerInfo = document.createElement('div')
+            askerInfo.innerText = `asked at ${question.createdAt.toString().slice(0,15)} by ${question.User.username}`
+
+            ele.appendChild(link)
+            ele.appendChild(body)
+            infoLine.appendChild(answerCount)
+            infoLine.appendChild(askerInfo)
+            ele.appendChild(infoLine)
             questionContainer.appendChild(ele)
         })
     })
