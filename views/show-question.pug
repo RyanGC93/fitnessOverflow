@@ -1,5 +1,11 @@
 extends layout.pug
 
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/votes.js" type="module" defer)
+
 include utils.pug
 
 block content
@@ -10,6 +16,13 @@ block content
         each answer in answers
             dt Answer:
             dd= answer.body
+            div(class="voting-container") votes
+                a(href=`/questions/:id(\\d+)/answer:id/votes` class="voteBtn upVote" data-click-id="upvote") up
+                    
+                div(class ='totalVotes')= upvotes  
+                a(class="voteBtn downVote" data-click-id="downvote") dwn
+                    i(class='icon-downvote')
+
     if (userId === question.authorId)
         div
             p: a(href=`/questions/${question.id}/edit`) Edit this question?
@@ -18,3 +31,4 @@ block content
     if (userId !== question.authorId)
         div
             p: a(href=`/questions/${question.id}/answer`) Answer this question?
+     
