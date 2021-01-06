@@ -1,0 +1,16 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+    h4= question.title
+
+    p= question.body
+    ul
+        each answer in answers
+            li= answer.body
+    if (userId === question.authorId)
+        div
+            p: a(href=`/questions/${question.id}/edit`) Edit this question?
+        div
+            p: a(href=`/questions/${question.id}/delete`) Delete this question?

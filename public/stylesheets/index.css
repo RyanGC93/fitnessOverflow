@@ -1,3 +1,19 @@
 h1 {
     color: #555555;
 }
+
+.welcome{
+    display: flex;
+    justify-content: center;
+}
+
+.indexHeader{
+    display: flex;
+    justify-content: center;
+}
+
+.question{
+    color: blue;
+    display: flex;
+    justify-content: center;
+}

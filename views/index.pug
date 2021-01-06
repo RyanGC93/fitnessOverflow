@@ -1,5 +1,7 @@
 extends layout
 
+include utils.pug
+
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
@@ -8,4 +10,15 @@ append head
 
 block content
   h1= title
-  p Welcome to your Project Skeleton
+  p(class="welcome") Welcome to Fitness Overflow
+  form(class="search" action="/search" method="get")
+    +field('Search', 'search', search)
+    div
+      button(type='submit' ) Search for Questions
+  a(href="/questions/ask")
+    input(type='button' value="Ask a Question")
+  h2(class="indexHeader") List of Questions
+  ul
+    each question in questions
+      a(href=`/questions/${question.id}` class="question")
+        li= question.title
