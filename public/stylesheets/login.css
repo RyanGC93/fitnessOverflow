@@ -1,14 +1,11 @@
 .btn {
-    padding:0.5rem;
+    /* padding:0.5rem; */
     border-radius: 0.5rem;
     border: 1px solid black;
     font-size: 1rem;
 }
 
-.auth-form {
-    width:25%;
-    margin:auto;
-}
+
 
 .container {
     width: 60%;
@@ -17,12 +14,7 @@
 }
 
 
-.linked {
-    display: flex;
-    flex-direction: column;
-    width:25%;
-    margin:auto;
-}
+
 
 input {
     padding: 0.25rem;
@@ -46,3 +38,41 @@ input {
     flex-direction: column;
 
 }
+
+
+/* @media (max-width: 299px) {
+  .auth-form {
+    display: flex;
+    flex: column;
+}
+} */
+.auth-form {
+    width:400px;
+    margin:auto;
+  }
+
+  .linked {
+    width:400px;
+    margin:auto;
+  }
+
+/* @media screen and (max-width: 200px) {
+  .auth-form {
+    width:75%;
+    margin:auto;
+  }
+
+  .linked {
+    width:75%;
+    margin:auto;
+  }
+} */
+/* } */
+
+/*
+.linked {
+    display: flex;
+    flex-direction: column;
+    width:25%;
+    margin:auto;
+} */
