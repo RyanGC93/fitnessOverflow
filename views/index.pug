@@ -11,14 +11,15 @@ append head
 block content
   h1= title
   p(class="welcome") Welcome to Fitness Overflow
-  form(class="search" action="/search" method="get")
-    +field('Search', 'search', search)
+  div(class="searchForm")
+    label(for=fieldName) Search
+    input(type="text" class="search" name="search" id="search")
     div
-      button(type='submit' ) Search for Questions
+      button(type='button' id="searchButton" ) Search for Questions
   a(href="/questions/ask")
     input(type='button' value="Ask a Question")
   h2(class="indexHeader") List of Questions
-  ul
+  ul(id="questionContainer")
     each question in questions
       a(href=`/questions/${question.id}` class="question")
         li= question.title
