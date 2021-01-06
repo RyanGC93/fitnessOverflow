@@ -9,17 +9,19 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
-  p(class="welcome") Welcome to Fitness Overflow
-  div(class="searchForm")
-    label(for=fieldName) Search
-    input(type="text" class="search" name="search" id="search")
+  div(class="navbar")
+    p(class="welcome") Welcome to Fitness Overflow
     div
+      input(type="text" class="search" name="search" id="search" placeholder="Search...")
       button(type='button' id="searchButton" ) Search for Questions
-  a(href="/questions/ask")
-    input(type='button' value="Ask a Question")
+    a(href="/questions/ask")
+      input(type='button' value="Ask a Question")
   h2(class="indexHeader") List of Questions
   ul(id="questionContainer")
     each question in questions
-      a(href=`/questions/${question.id}` class="question")
-        li= question.title
+      li(class="questionContainer")
+        a(href=`/questions/${question.id}` class="question")
+          p Q: #{question.title}
+        p= question.body
+        div
+          div(class="info") asked #{question.createdAt} by #{question.userId}

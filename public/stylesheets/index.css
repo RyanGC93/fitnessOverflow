@@ -18,6 +18,17 @@ h1 {
     justify-content: center;
 }
 
+.questionContainer{
+    border: 1px solid black;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info{
+    text-align: right;
+}
+
 
 .navbar {
     display: flex;
