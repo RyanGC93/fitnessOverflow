@@ -1,6 +1,6 @@
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
-  div
-    label(for=fieldName)= labelText
+  div(class="form-group")
+    label(for=fieldName class="label")= labelText
     input(type=fieldType id=fieldName name=fieldName value=fieldValue)
 
 
@@ -11,5 +11,3 @@ mixin validationErrorSummary(errors)
       ul
         each error in errors
           li= error
-
-
