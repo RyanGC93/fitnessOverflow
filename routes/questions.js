@@ -63,7 +63,7 @@ router.post('/ask', requireAuth, csrfProtection, questionValidators, asyncHandle
     }
 }))
 
-router.get('/:id(\\d+)/edit', csrfProtection,
+router.get('/:id(\\d+)/edit', requireAuth, csrfProtection,
     asyncHandler(async (req, res) => {
         const questionId = parseInt(req.params.id, 10);
         const question = await db.Question.findByPk(questionId);
@@ -79,7 +79,7 @@ router.get('/:id(\\d+)/edit', csrfProtection,
     }));
 
 
-router.post('/:id(\\d+)/edit', csrfProtection, questionValidators,
+router.post('/:id(\\d+)/edit', requireAuth, csrfProtection, questionValidators,
     asyncHandler(async (req, res) => {
         const questionId = parseInt(req.params.id, 10);
         const questionToUpdate = await db.Question.findByPk(questionId);
