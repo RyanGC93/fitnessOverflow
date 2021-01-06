@@ -2,8 +2,9 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="Fitness Overflow"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        block scripts
   body
     if locals.authenticated
           span Welcome #{user.username}!
