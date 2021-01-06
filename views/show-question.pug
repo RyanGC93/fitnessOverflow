@@ -6,10 +6,15 @@ block content
     h4= question.title
 
     p= question.body
-    dl
+    div
         each answer in answers
-            dt Answer:
-            dd= answer.body
+            div
+              dl
+              dt Answer:
+              dd= answer.body
+              if (userId === answer.authorId)
+                p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit this Answer?
+                p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete this Answer?
     if (userId === question.authorId)
         div
             p: a(href=`/questions/${question.id}/edit`) Edit this question?

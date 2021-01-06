@@ -1,0 +1,16 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+ if (userId === answer.authorId)
+  +validationErrorSummary(errors)
+  form(action=`/questions/${question.id}/answer/${answer.id}/edit` method='post')
+     input(type='hidden' name='_csrf' value=csrfToken)
+     label(for="body") Answer
+     textarea(id="body" name="body")= answer.body
+     div
+      button(type='submit') Edit Answer
+      a(href=`/questions/${question.id}`) Cancel
+ else
+   p you are not authorized to edit this answer
