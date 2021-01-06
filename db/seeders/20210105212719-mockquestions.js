@@ -15,29 +15,32 @@ module.exports = {
    },
    {
 
-      title: 'How often should I workout?',
-      body: "The American College of Sports Medicine (ACSM) recommends getting 150 minutes of moderate intensity physical activity per week to achieve the health benefits, maintain current weight, and/or prevent weight gain.",
-      authorId: 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-   },
-   {
-
       title: "Should Children Lift Weights?",
      body: "I have a kid and I was wondering if they can get gains too",
-      // Kids lift weight all the time, and more than most adults. Think about how often a kid climbs up a tree or jungle gym. They are lifting their entire body weight. When they piggy back one another, they carry a friends' entire body weight on their back whilst running.
+      // 
       authorId: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
    },
    {
 
-      title: "How Important Is Nutrition",
-      body: "How important is nutrition if I am working out?",
+      title: "How To Lose a Pound",
+      body: "I am always working out but seem to not be able to lose any weight. My question is how much effort does it take to lose a pound?",
+
       authorId: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
-   }]
+   }, 
+      {
+        title: "How to get bigger muscles",
+        body: "I have never been much of an athlete and I was wonder how I can get bigger muscles ?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      } 
+   
+   ]
   
   
 
