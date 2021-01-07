@@ -22,8 +22,7 @@ window.addEventListener("DOMContentLoaded", (event)=>{
             answerCount.classList.add("answers")
             if(question.Answers){
                 answerCount.innerText = "Answers: " + question.Answers.length
-            }
-            else{
+            }else{
                 answerCount.innerText = "Answers: 0"
             }
             let askerInfo = document.createElement('div')
