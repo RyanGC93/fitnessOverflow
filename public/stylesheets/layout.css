@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin:auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link-1 {
+    text-decoration: none;
+    padding: 1rem;
+
+}
+.nav-link-2 {
+    padding: 1rem;
+
+}

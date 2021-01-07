@@ -1,0 +1,47 @@
+.btn {
+    /* padding:0.5rem; */
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    font-size: 1rem;
+}
+
+
+.container {
+    width: 60%;
+    margin: auto;
+    padding: 1rem;
+}
+
+
+input {
+    padding: 0.25rem;
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin: auto;
+    width: fit-content;
+}
+
+
+.label {
+    padding: 0.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.auth-form {
+    width:400px;
+    margin:auto;
+  }
+
+  .linked {
+    width:400px;
+    margin:auto;
+  }

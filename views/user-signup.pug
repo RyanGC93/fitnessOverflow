@@ -1,5 +1,8 @@
 extends layout.pug
-
+append head
+  link(rel="stylesheet" href="/stylesheets/login.css")
+  link(rel="stylesheet" href="/stylesheets/reset.css")
+  //- add page specific js
 include utils.pug
 
 block content
@@ -13,7 +16,7 @@ block content
     +field('Password', 'password', user.password, 'password')
     +field('Confirm Password', 'confirmPassword', '', 'password')
     div
-      button(class="btn" type='submit') Sign-up
+      button(class="btn" type='submit') Signup
       a(href='/') Cancel
-  div
-    p: a(href='/users/login' class="linked") Already have an account?
+    div
+     p: a(href='/users/login' class="linked") Already have an account?
