@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 
 const { requireAuth } = require('../utils/auth')
 
-router.get('/questions/:id(\\d+)/answer', requireAuth, csrfProtection, asyncHandler (async(req, res) => {
+router.get('/:id(\\d+)/answer', requireAuth, csrfProtection, asyncHandler (async(req, res) => {
     const questionId = parseInt(req.params.id, 10)
     const { userId } = req.session.auth
     const question = await db.Question.findByPk(questionId)
@@ -31,7 +31,7 @@ const answerValidators = [
 ]
 
 
-router.post('/questions/:id(\\d+)/answer', requireAuth, csrfProtection, answerValidators, asyncHandler(async (req, res) => {
+router.post('/:id(\\d+)/answer', requireAuth, csrfProtection, answerValidators, asyncHandler(async (req, res) => {
     const {
         body
     } = req.body
@@ -64,7 +64,7 @@ router.post('/questions/:id(\\d+)/answer', requireAuth, csrfProtection, answerVa
 }))
 
 
-router.get('/questions/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProtection,
+router.get('/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProtection,
     asyncHandler(async (req, res) => {
         const questionId = parseInt(req.params.id, 10);
         const answerId = parseInt(req.params.id2, 10);
@@ -82,7 +82,7 @@ router.get('/questions/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProte
     }));
 
 
-router.post('/questions/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProtection, answerValidators,
+router.post('/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProtection, answerValidators,
     asyncHandler(async (req, res) => {
         const questionId = parseInt(req.params.id, 10);
         const question = await db.Question.findByPk(questionId);
@@ -119,7 +119,7 @@ router.post('/questions/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProt
 
 
 
-router.get('/questions/:id(\\d+)/answer/:id2(\\d+)/delete', requireAuth, csrfProtection,
+router.get('/:id(\\d+)/answer/:id2(\\d+)/delete', requireAuth, csrfProtection,
     asyncHandler(async (req, res) => {
         const questionId = parseInt(req.params.id, 10);
         const answerId = parseInt(req.params.id2, 10);
@@ -129,7 +129,7 @@ router.get('/questions/:id(\\d+)/answer/:id2(\\d+)/delete', requireAuth, csrfPro
         res.render('delete-answer', { title: "Delete Answer", questionId, answer, userId, csrfToken: req.csrfToken() })
     }))
 
-router.post('/questions/:id(\\d+)/answer/:id2(\\d+)/delete', requireAuth, csrfProtection,
+router.post('/:id(\\d+)/answer/:id2(\\d+)/delete', requireAuth, csrfProtection,
     asyncHandler(async (req, res) => {
         const questionId = parseInt(req.params.id, 10);
         const answerId = parseInt(req.params.id2, 10);
