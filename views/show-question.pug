@@ -9,6 +9,7 @@ append head
 include utils.pug
 
 block content
+    div(class="hidden" id="questionId")=question.id 
     h4= question.title
 
     p= question.body
@@ -16,11 +17,11 @@ block content
         each answer in answers
             dt Answer:
             dd= answer.body
-            div(class="voting-container") votes
-                a(href=`/questions/:id(\\d+)/answer:id/votes` class="voteBtn upVote" data-click-id="upvote") up
-                    
+            div(class="voting-container" id=`${answer.id}`) votes
+                button(class=`voteBtn upVote ${answer.id}` data-click-id="upvote") up
+                
                 div(class ='totalVotes')= upvotes  
-                a(class="voteBtn downVote" data-click-id="downvote") dwn
+                button(class="voteBtn downVote" ) down
                     i(class='icon-downvote')
 
     if (userId === question.authorId)
