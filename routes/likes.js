@@ -1,20 +1,9 @@
 var express = require('express');
-const bcrypt = require('bcryptjs')
 var router = express.Router();
-const { loginUser, logoutUser } = require('../utils/auth')
 
 const { asyncHandler, csrfProtection } = require('../utils/utils.js')
 const db = require('../db/models')
 const { check, validationResult } = require('express-validator');
-
-const { requireAuth } = require('../utils/auth')
-
-const voteValidators = [
-    check('type')
-        .exists({ checkFalsy: true })
-        .withMessage('title is missing')
-]
-
 
 router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/upvote')
  	.patch( asyncHandler(async (req,res)=>{
@@ -90,11 +79,9 @@ router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/vote')
 		let totalDownVotes= downvotes.length
 		
 		let totalVotes = totalUpVotes - totalDownVotes
-
 		res.json({
 			totalVotes,
-		})
-		  
+		})  
 	  }))
 
 router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/downvote')
