@@ -29,12 +29,14 @@
   <h3 align="center">Fitness Overflow</h3>
 
   <p align="center">
-    project_description
+    A fitness/health based clone of Stack Overflow
     <br />
     <a href="https://github.com/RyanGC93/fitnessOverflow"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/RyanGC93/fitnessOverflow">View Demo</a>
+    <a href="http://fitness-overflow.herokuapp.com/users/login">View Demo</a>
+    .
+    <a href="https://github.com/RyanGC93/fitnessOverflow/wiki">Wiki</a>
     ·
     <a href="https://github.com/RyanGC93/fitnessOverflow/issues">Report Bug</a>
     ·
@@ -77,15 +79,48 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`RyanGC93`, `fitnessOverflow`, `twitter_handle`, `Fitness Overflow`, `Fitness Overflow`, `project_description`
+Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able to browse, ask,search, answer and vote on fitness and health related questions. The site uses User-based session authentication to interact with the website and access these features. 
 
+## Feature Highlights
+
+### Highlight One
+
+Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able to browse, ask,search, answer and vote on fitness and health related questions. The site uses User-based session authentication to interact with the website and access these features. 
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+### Highlight Two
+
+Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able to browse, ask,search, answer and vote on fitness and health related questions. The site uses User-based session authentication to interact with the website and access these features. 
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+## Project Challenges
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able to browse, ask,search, answer and vote on fitness and health related questions. The site uses User-based session authentication to interact with the website and access these features. 
+
+## Code Snippets
+
+
+### Code Snippet #1
+```js
+
+```
+### Code Snippet #2
+```js
+
+```
+### Code Snippet #3
+```js
+
+```
 
 ### Built With
 
 * [Javascript](https://www.javascript.com/)
-* [Css]()
+* [CSS]()
 * [Pug](https://pugjs.org/api/getting-started.html)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Express](https://expressjs.com/)
