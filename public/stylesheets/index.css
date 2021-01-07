@@ -40,7 +40,7 @@ h1 {
 
 .question:hover{
     border: 3px solid black;
-    
+
 
 }
 
@@ -56,87 +56,6 @@ h1 {
     align-items: center;
     display: flex;
     justify-content: space-between;
-}
-
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    margin:auto;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-.nav-link-1 {
-    text-decoration: none;
-    padding: 1rem;
-
-}
-.nav-link-2 {
-    padding: 1rem;
-
-
-}
-/*
-.nav-link:hover {
-    box-shadow: 1px 1px white ;
-} */
-
-.title {
-    font-size: 2rem;
-    margin: auto;
-    width: fit-content;
-}
-
-.container {
-    width: 60%;
-    margin: auto;
-    padding: 1rem;
-}
-
-.auth-form {
-    width:25%;
-    margin:auto;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.label {
-    padding: 0.5rem;
-}
-
-input {
-    padding: 0.25rem;
-    border: 1px solid grey;
-    border-radius: 0.25rem;
-}
-
-.btn {
-    padding:0.2rem;
-    border-radius: 0.2rem;
-    border: 1px solid black;
-    font-size: 1rem;
-}
-
-.auth-actions {
-    margin: auto;
-    width: 50%;
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.linked {
-    display: flex;
-    flex-direction: column;
-    width:25%;
-    margin:auto;
 }
 
 .logout{

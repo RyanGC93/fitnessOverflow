@@ -1,16 +1,23 @@
 extends layout.pug
 
-include utils.pug
-
 block content
     h4= question.title
 
     p= question.body
-    ul
+    div
         each answer in answers
-            li= answer.body
+            div
+              dl
+              dt Answer:
+              dd= answer.body
+              if (userId === answer.authorId)
+                p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit this Answer?
+                p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete this Answer?
     if (userId === question.authorId)
         div
             p: a(href=`/questions/${question.id}/edit`) Edit this question?
         div
             p: a(href=`/questions/${question.id}/delete`) Delete this question?
+    if (userId !== question.authorId)
+        div
+            p: a(href=`/questions/${question.id}/answer`) Answer this question?
