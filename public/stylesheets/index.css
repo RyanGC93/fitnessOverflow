@@ -12,17 +12,57 @@ h1 {
     justify-content: center;
 }
 
-.question{
+.questionLink{
     color: blue;
     display: flex;
     justify-content: center;
+}
+
+.questionLink:visited{
+    color: blueviolet;
+}
+
+.question{
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 60%;
+    height: 150px;
+    margin:auto;
+    padding: 15px;
+    padding-top: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: rgb(235, 233, 226);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 115%;
+
+}
+
+.question:hover{
+    border: 3px solid black;
+    
+
+}
+
+.info{
+    text-align: right;
+}
+
+.navbar2 {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin:auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 
 .navbar {
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 60%;
     margin:auto;
     align-items: center;
     display: flex;
@@ -36,6 +76,7 @@ h1 {
 }
 .nav-link-2 {
     padding: 1rem;
+
 
 }
 /*
@@ -77,8 +118,8 @@ input {
 }
 
 .btn {
-    padding:0.5rem;
-    border-radius: 0.5rem;
+    padding:0.2rem;
+    border-radius: 0.2rem;
     border: 1px solid black;
     font-size: 1rem;
 }
@@ -96,4 +137,8 @@ input {
     flex-direction: column;
     width:25%;
     margin:auto;
+}
+
+.logout{
+    height: 50%;
 }

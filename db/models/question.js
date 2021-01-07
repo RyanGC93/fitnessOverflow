@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     Question.belongsTo(models.User, {
       foreignKey: "authorId"
     } )
+    Question.hasMany(models.Answer, {
+      foreignKey: "questionId"
+    } )
   };
   return Question;
 };
