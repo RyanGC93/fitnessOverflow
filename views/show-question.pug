@@ -3,6 +3,8 @@ extends layout.pug
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/votes.css")
+
   //- add page specific js
   script(src="/javascripts/votes.js" type="module" defer)
 
@@ -18,11 +20,13 @@ block content
             dt Answer:
             dd= answer.body
             div(class="voting-container" id=`${answer.id}`) votes
-                button(class=`voteBtn upVote ${answer.id}` data-click-id="upvote") up
-                
+                img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
+
+
                 div(class ='totalVotes')= upvotes  
-                button(class="voteBtn downVote" ) down
-                    i(class='icon-downvote')
+ 
+                img(class="voteBtn downVote" src="/images/downvote-transparent.png")
+
 
     if (userId === question.authorId)
         div
