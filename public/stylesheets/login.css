@@ -1,47 +1,148 @@
-.btn {
-    /* padding:0.5rem; */
-    border-radius: 0.5rem;
-    border: 1px solid black;
-    font-size: 1rem;
-}
 
-
-.container {
-    width: 60%;
-    margin: auto;
-    padding: 1rem;
-}
-
-
-input {
-    padding: 0.25rem;
-    border: 1px solid grey;
-    border-radius: 0.25rem;
-}
-
-.title {
-    font-size: 2rem;
-    margin: auto;
-    width: fit-content;
-}
-
-
-.label {
-    padding: 0.5rem;
-}
-
-.form-group {
+body {
+    background-image: url('https://images.pexels.com/photos/40720/basil-herbs-green-mediterranean-40720.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    padding: 0;
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  #main {
     display: flex;
-    flex-direction: column;
-
-}
-
-.auth-form {
-    width:400px;
-    margin:auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  form {
+    background-color: rgba(60, 89, 107, 0.63);
+    width: 40%;
+    padding: 30px;
+  }
+  
+  .username input,
+  .password input {
+    width: 100%;
+    height: 40px;
+    border: 0px;
+    margin: 5px 5px 15px;
+    box-sizing: border-box;
+    padding: 15px 15px;
+  }
+  
+  input:focus,
+  button:focus {
+    outline: none;
+  }
+  
+  button {
+    background: #63cdda;
+    color: #fff;
+    border: 0px;
+    width: 70%;
+    padding: 10px;
+    margin: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 6%;
+  }
+  
+  .checkbox {
+    color: #fff;
+    padding-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    text-align: center;
+    color: #fff;
+    text-transform: capitalize;
+  }
+  
+  .social {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .social button {
+    display: flex;
+    width: 30px;
+    padding: 5px;
+    background-color: transparent;
+    justify-content: center;
+    text-transform: capitalize;
+  }
+  
+  .social button:nth-child(1) {
+    background-color: #3498db;
+  }
+  
+  .social button:nth-child(2) {
+    background-color: #e74c3c;
+  }
+  
+  .fa {
+    float: left;
+    font-size: 18px;
+  }
+  
+  a {
+    padding-left: 5px;
+    text-decoration: none;
+    color: #63cdda;
+    text-transform: capitalize;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .label {
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 15px;
+    text-transform: capitalize;
+  }
+  
+  @media(max-width:610px) {
+    form {
+      width: 60%;
+    }
+  
+    button {
+      padding: 5px;
+    }
+  }
+  
+  @media(max-width:420px) {
+    form {
+      width: 70%;
+    }
+  
+    h3 {
+      margin: 10px;
+    }
+  }
+  
+  .ourIcon{
+      height: 120px;
+      position: relative;
+  
   }
 
-  .linked {
-    width:400px;
-    margin:auto;
+  .ourIconHolder{
+      width: 100%;
+      display:flex;
+      justify-content: center;
+  }
+
+  .ourHeader{
+      left: 50%
   }
