@@ -33,7 +33,7 @@ input {
 .form-group {
     display: flex;
     flex-direction: column;
-
+    width: 80%;
 }
 
 .auth-form {
@@ -44,4 +44,6 @@ input {
   .linked {
     width:400px;
     margin:auto;
+    margin-top: 0px;
+    text-align: center;
   }
