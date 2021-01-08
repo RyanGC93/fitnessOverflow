@@ -1,23 +1,27 @@
 extends layout.pug
 
-block content
-    h4= question.title
+append head
 
-    p= question.body
-    div
-        each answer in answers
-            div
-              dl
-              dt Answer:
-              dd= answer.body
-              if (userId === answer.authorId)
-                p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit this Answer?
-                p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete this Answer?
-    if (userId === question.authorId)
-        div
-            p: a(href=`/questions/${question.id}/edit`) Edit this question?
-        div
-            p: a(href=`/questions/${question.id}/delete`) Delete this question?
-    if (userId !== question.authorId)
-        div
-            p: a(href=`/questions/${question.id}/answer`) Answer this question?
+  link(rel="stylesheet" href="/stylesheets/show-question.css")
+
+block content
+ h1 Question:
+ div(class="question-container")
+  h4(class="question-title")= question.title
+  p(class="question-body")= question.body
+  if (userId === question.authorId)
+   p: a(href=`/questions/${question.id}/edit`) Edit
+   p: a(href=`/questions/${question.id}/delete`) Delete
+  else
+   p: a(href=`/questions/${question.id}/answer` class="question-answer") Answer
+ div(class="space")
+ if (answers.length >= 1)
+  h1 Answers:
+ div(class="answers-container")
+    each answer in answers
+     div(class="answer")
+      div(class="answer-body")= answer.body
+      if (userId === answer.authorId)
+        div(class="answer-links")
+          p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit
+          p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete
