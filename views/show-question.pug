@@ -3,6 +3,7 @@ extends layout.pug
 append head
 
   link(rel="stylesheet" href="/stylesheets/show-question.css")
+  script(src="/javascripts/votes.js" type="module" defer)
 
 block content
  h1 Question:
@@ -21,6 +22,11 @@ block content
     each answer in answers
      div(class="answer")
       div(class="answer-body")= answer.body
+      div(class="voting-container" id=`${answer.id}`) votes
+        img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
+      div(class ='totalVotes')= upvotes
+        img(class="voteBtn downVote" src="/images/downvote-transparent.png")
+
       if (userId === answer.authorId)
         div(class="answer-links")
           p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit

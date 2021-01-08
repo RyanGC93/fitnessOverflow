@@ -19,7 +19,7 @@ module.exports = {
     for (let i = 3; i < 45; i++) {
       let vote= i
       let newVotes = {
-        userId: Math.floor(Math.random() * 45)+1,
+        userId: vote,
         answerId: vote,
         voteType:  voteTypes[Math.floor(Math.random() * 2)],
         createdAt: new Date(),
