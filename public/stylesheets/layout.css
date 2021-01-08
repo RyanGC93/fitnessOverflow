@@ -1,19 +1,33 @@
 .navbar {
     display: flex;
-    flex-direction: row;
-    width: 70%;
+    width: 65%;
     margin:auto;
     align-items: center;
-    display: flex;
-    justify-content: space-between;
+    position:relative;
+    /* justify-content: center; */
 }
 
 .nav-link-1 {
-    text-decoration: none;
-    padding: 1rem;
+    font-weight: bold;
+    position: absolute;
+    bottom: 13px;
+    right: 0px;
+}
+
+.header {
 
 }
-.nav-link-2 {
-    padding: 1rem;
 
+.nav-link-2 {
+    /* position:absolute; */
+    /* right: 30px; */
+    /* right: 100px; */
+    /* font-size: 200%; */
+    width: 80%;
+}
+
+.logout-bar {
+    position:absolute;
+    right: 0px;
+    bottom: 4px;
 }
