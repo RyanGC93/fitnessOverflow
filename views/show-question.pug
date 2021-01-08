@@ -1,13 +1,15 @@
 extends layout.pug
 
 append head
-
+  //- link(rel="stylesheet" href="/stylesheets/index.css")
   link(rel="stylesheet" href="/stylesheets/show-question.css")
+  link(rel="stylesheet" href="/stylesheets/votes.css")
   script(src="/javascripts/votes.js" type="module" defer)
 
 block content
  h1 Question:
  div(class="question-container")
+  div(id="questionId" class="hidden")= question.id
   h4(class="question-title")= question.title
   p(class="question-body")= question.body
   if (userId === question.authorId)
@@ -19,15 +21,16 @@ block content
  if (answers.length >= 1)
   h1 Answers:
  div(class="answers-container")
-    each answer in answers
-     div(class="answer")
+   each answer in answers
+    div(class="answer")
+     div(class="answer-top")
       div(class="answer-body")= answer.body
-      div(class="voting-container" id=`${answer.id}`) votes
+      div(class="voting-container" id=`${answer.id}`)
         img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
-      div(class ='totalVotes')= upvotes
+        div(class ='totalVotes')= upvotes
         img(class="voteBtn downVote" src="/images/downvote-transparent.png")
-
+     div(class="answer-bottom")
       if (userId === answer.authorId)
-        div(class="answer-links")
-          p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit
-          p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete
+       div(class="answer-links")
+        p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit
+        p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete

@@ -27,9 +27,6 @@
     font-size: 115%;
 }
 
-.question-answer {
-    /* font-weight: bold; */
-}
 
 .space {
     padding: 15px;
@@ -63,4 +60,12 @@ h1 {
 
 .answer-body {
     font-size: 115%;
+}
+
+/* .answer-top {
+    display: flex;
+    a} */
+
+.answer-bottom {
+
 }
