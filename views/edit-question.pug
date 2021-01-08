@@ -2,17 +2,22 @@ extends layout.pug
 
 include utils.pug
 
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/forms.css")
+
 block content
  if (userId === question.authorId)
-  +validationErrorSummary(errors)
-  form(action=`/questions/${question.id}/edit` method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Title', 'title', question.title)
-    div
-     label(for="body") Question
-     textarea(id="body" name="body")= question.body
-    div
-      button(type='submit') Edit Question
-      a(href=`/questions/${question.id}`) Cancel
+  .container
+    +validationErrorSummary(errors)
+    form(action=`/questions/${question.id}/edit` method='post' class="forms")
+      input(type='hidden' name='_csrf' value=csrfToken)
+      +field('Title', 'title', question.title)
+      div(class="form-group")
+        label(for="body" class="label") Question
+        textarea(id="body" name="body" class="input")= question.body
+      div
+        button(type='submit' class="btn") Edit Question
+        a(href=`/questions/${question.id}`) Cancel
  else
    p you are not authorized to edit this question

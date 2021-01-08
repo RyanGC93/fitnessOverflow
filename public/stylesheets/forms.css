@@ -1,8 +1,11 @@
 
 .container {
-    width: 60%;
+    width: 30%;
     margin: auto;
     padding: 1rem;
+    border: 1px solid black;
+    background-color: rgb(212, 212, 212);
+    border-radius: 2px;
 }
 
 
@@ -50,4 +53,14 @@ input {
     border: 1px solid grey;
     border-radius: 0.25rem;
     width: 100%;
+}
+
+
+.container-delete {
+    width: 20%;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid black;
+    background-color: rgb(212, 212, 212);
+    border-radius: 2px;
 }
