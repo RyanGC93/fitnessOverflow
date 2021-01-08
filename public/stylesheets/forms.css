@@ -1,13 +1,25 @@
 
 .container {
-    width: 30%;
+    width: 50%;
+    height: 50%;
     margin: auto;
     padding: 1rem;
     border: 1px solid black;
     background-color: rgb(212, 212, 212);
     border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    background-color: rgba(66, 94, 255, 0.8);
+    transform: translate(-50%,-50%)
 }
 
+body {
+    background-image: url(../images/pexels-lukas-669576.jpg);
+    background-size: contain;
+    background-attachment: fixed;
+}
 
 .form-group {
     display: flex;
@@ -27,8 +39,8 @@
 }
 
 .forms {
-    width:400px;
-    margin:auto;
+    /* width:100px; */
+    /* margin:auto; */
 }
 
 .title {
@@ -39,6 +51,7 @@
 
 .label {
     padding: 0.5rem;
+    font-size: 130%;
 }
 
 .input {
@@ -47,6 +60,11 @@
     border-radius: 0.25rem;
     width: 100%;
 }
+
+textarea {
+    resize: none;
+}
+
 
 input {
     padding: 0.25rem;
