@@ -1,28 +1,30 @@
-head
-  title Login Form In 
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
 
-  include utils.pug
+
+append head
+  //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/login.css")
   //- add page specific js
   script(src="/javascripts/demo-login.js" type="module" defer)
-#main
-  div(class="ourIconHolder")
-      div
-      img(class="ourIcon" src="/pictures/logoTransparent.png", alt="Fitness Overflow")
-  h2(class="ourheader") Fitness Overflow
-  form(action='/users/login' method='post')
-    .label login form
+
+include utils.pug
+
+block content
+  .container
+    form(class="auth-form" action='/users/login' method='post')
       +validationErrorSummary(errors)
-      form(class="auth-form" action='/users/login' method='post')
+      image(class="logo" src="/pictures/logoTransparent.png")
+        div(class="title") Fitness Overflow
       input(type='hidden' name='_csrf' value=csrfToken)
-      .username
-        input(id="email" type='text' placeholder='email' )
-      .password
-        input(id="password" type='password' name="password"  placeholder='password')
-      button(type='submit') login
-      div
-      a(href='/users/signup' class="linked") Sign up?
+      div(class='emailLogin--row')
+        svg(class="login__icon svg-icon" viewBox="0 0 20 20")
+          path(d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8")
+        input(type="text" id="email" name="email" placeholder="Email")
+      div(class="password--row")
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png')  
+        // svg(class="login__icon svg-icon" viewBox="0 0 20 20")
+          // path(d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0")
+        input(type="password" id="password" name="password" placeholder="Password")
+      div(class='login-btn')
+        button(class="btn" type='submit' ) Login
+      div(class="account--row")    
+        P: a(href='/users/signup' class="linked") Don't have an account?
