@@ -1,8 +1,10 @@
+
+
 window.addEventListener("DOMContentLoaded", (event)=>{
     let searchBox = document.getElementById('search')
     let searchButton = document.getElementById('searchButton')
     searchButton.addEventListener('click', async (event) =>{
-        let res = await fetch(`http://localhost:8080/api/search?search=${searchBox.value}`)
+        let res = await fetch(`/api/search?search=${searchBox.value}`)
         let {questions} = await res.json()
         let questionContainer = document.getElementById('questionsContainer')
         questionContainer.innerHTML = ""
@@ -13,7 +15,8 @@ window.addEventListener("DOMContentLoaded", (event)=>{
             let link = document.createElement('a')
             link.href = `/questions/${question.id}`
             link.classList.add('questionLink')
-            link.innerText = `Q: ${question.title}`
+            let title = document.createElement('p')
+            title.innerText = `Q: ${question.title}`
             let body = document.createElement('p')
             body.innerText = question.body
 
@@ -29,14 +32,16 @@ window.addEventListener("DOMContentLoaded", (event)=>{
             askerInfo.classList.add('info')
             askerInfo.innerText = `asked at ${question.createdAt.toString().slice(0,15)} by ${question.User.username}`
             
-            infoLine.appendChild(answerCount)
-            infoLine.appendChild(askerInfo)
 
-            container.appendChild(link)
+
+
+            questionContainer.appendChild(link)
+            link.appendChild(container)
+            container.appendChild(title)
             container.appendChild(body)
             container.appendChild(infoLine)
-
-            questionContainer.appendChild(container)
+            infoLine.appendChild(answerCount)
+            infoLine.appendChild(askerInfo)
         
         })
     })
