@@ -12,9 +12,9 @@
     width: 80%;
 }
 
-#body{
+/* #body{
     width: 60%;
-}
+} */
 
 .btn{
     padding:0.2rem;
@@ -39,6 +39,13 @@
 }
 
 .input {
+    padding: 0.25rem;
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+input {
     padding: 0.25rem;
     border: 1px solid grey;
     border-radius: 0.25rem;
