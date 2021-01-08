@@ -17,7 +17,8 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/signup', csrfProtection, (req, res) =>{
+router.get('/signup', csrfProtection, (req, res) => {
+
   const user = db.User.build()
   res.render('user-signup', {
     title: 'Signup',
@@ -98,6 +99,10 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 }))
 
 router.get('/login', csrfProtection, (req, res) => {
+
+  if (res.locals.authenticated) {
+    return res.redirect('/')
+  }
   res.render('user-login', {
     title: 'Login',
     csrfToken: req.csrfToken(),
