@@ -1,18 +1,33 @@
 extends layout.pug
 
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/votes.css")
+
+  //- add page specific js
+  script(src="/javascripts/votes.js" type="module" defer)
+
+include utils.pug
+
 block content
+    div(class="hidden" id="questionId")=question.id 
     h4= question.title
 
     p= question.body
     div
         each answer in answers
-            div
-              dl
-              dt Answer:
-              dd= answer.body
-              if (userId === answer.authorId)
-                p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit this Answer?
-                p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete this Answer?
+            dt Answer:
+            dd= answer.body
+            div(class="voting-container" id=`${answer.id}`) votes
+                img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
+
+
+                div(class ='totalVotes')= upvotes  
+ 
+                img(class="voteBtn downVote" src="/images/downvote-transparent.png")
+
+
     if (userId === question.authorId)
         div
             p: a(href=`/questions/${question.id}/edit`) Edit this question?
@@ -21,3 +36,4 @@ block content
     if (userId !== question.authorId)
         div
             p: a(href=`/questions/${question.id}/answer`) Answer this question?
+     
