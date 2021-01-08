@@ -3,13 +3,20 @@ html
   head
       block head
         title="Fitness Overflow"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
-        link(rel='stylesheet' href='/stylesheets/index.css')
+        //- link(rel='stylesheet' href='/stylesheets/reset.css')
+        //- link(rel='stylesheet' href='/stylesheets/index.css')
+        link(rel='stylesheet' href='/stylesheets/layout.css')
+        link(rel="stylesheet" href="/stylesheets/reset.css")
   body
     if locals.authenticated
-          span Welcome #{user.username}!
-          form(class="auth-form" action='/users/logout' method='post')
-            button(class="btn" type='submit') Logout
+          .navbar
+            span(class="navbar-1")
+              p(class="nav-link-1") Welcome #{user.username}!
+            span(class="navbar-1")
+              p(class="nav-link-1") Fitness Overflow
+            span(class="navbar-2")
+              form(class="auth-form" action='/users/logout' method='post')
+               button(class="btn logout" type='submit') Logout
     else
         .navbar
           span(class="navbar-1")

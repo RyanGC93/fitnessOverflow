@@ -44,8 +44,8 @@ store.sync();
 app.use(restoreUser)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use(answersRouter);
-app.use(searchRouter)
+app.use('/questions', answersRouter);
+app.use('/api/search',searchRouter)
 app.use('/questions', questionsRouter);
 app.use('/questions', likesRouter);
 

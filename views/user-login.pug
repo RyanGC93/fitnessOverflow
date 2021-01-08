@@ -2,7 +2,7 @@ extends layout.pug
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/login.css")
   //- add page specific js
   script(src="/javascripts/demo-login.js" type="module" defer)
 
@@ -15,7 +15,7 @@ block content
   form(class="auth-form" action='/users/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Email', 'email', email )
-    +field('Password', 'password', null, 'password') 
+    +field('Password', 'password', null, 'password')
     div
       button(class="btn" type='submit' ) Login
       a(href='/') Cancel
