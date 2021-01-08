@@ -2,15 +2,20 @@ extends layout.pug
 
 include utils.pug
 
-block content
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/forms.css")
 
-  +validationErrorSummary(errors)
-  form(action='/questions/ask' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Title', 'title', question.title)
-    div
-     label(for="body") Question
-     textarea(id="body" name="body")= question.body
-    div
-      button(type='submit') Post Question
-      a(href='/') Cancel
+block content
+  .container
+    h1(class="title") Create a Question
+    +validationErrorSummary(errors)
+    form(action='/questions/ask' method='post' class="forms")
+      input(type='hidden' name='_csrf' value=csrfToken)
+      +field('Title', 'title', question.title)
+      div(class="form-group")
+        label(for="body" class='label') Question
+        textarea(id="body" name="body" class="input")= question.body
+      div
+        button(type='submit' class='btn') Post Question
+        a(href='/') Cancel

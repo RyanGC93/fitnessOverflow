@@ -6,12 +6,12 @@ window.addEventListener("load", (event)=>{
     votingContainers.forEach(voteContainer =>{
         let answerId = voteContainer.id
 
-        let upvoteButton = voteContainer.childNodes[1]
-        let counter = voteContainer.childNodes[2]
-        let downvoteButton = voteContainer.childNodes[3]
-        
+        let upvoteButton = voteContainer.childNodes[0]
+        let counter = voteContainer.childNodes[1]
+        let downvoteButton = voteContainer.childNodes[2]
+
         async function getCurrent_votes() {
-            const currentVotes_result = await fetch(`http://localhost:8080/questions/${questionId}/answer/${answerId}/vote`, {
+            const currentVotes_result = await fetch(`/questions/${questionId}/answer/${answerId}/vote`, {
                 method: "GET",
                 headers:
                     { 'Content': "application/json" }
@@ -22,7 +22,7 @@ window.addEventListener("load", (event)=>{
         getCurrent_votes()
 
         upvoteButton.addEventListener("click", async (event) =>{
-            let res = await fetch(`http://localhost:8080/questions/${questionId}/answer/${answerId}/upvote`, {
+            let res = await fetch(`/questions/${questionId}/answer/${answerId}/upvote`, {
                 method: "PATCH",
                 headers:
                 {'Content': "application/json"}
@@ -30,9 +30,9 @@ window.addEventListener("load", (event)=>{
             const  json  = await res.json()
             counter.innerHTML=json.totalVotes
         })
-        
+
         downvoteButton.addEventListener("click", async (event) =>{
-            let res = await fetch(`http://localhost:8080/questions/${questionId}/answer/${answerId}/downvote`, {
+            let res = await fetch(`/questions/${questionId}/answer/${answerId}/downvote`, {
                 method: "PATCH",
                 headers:
                 {'Content': "application/json"}

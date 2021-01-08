@@ -1,9 +1,9 @@
 extends layout
 
 append head
-  //- add page specific styles by appending to the head
+
   link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
+
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
@@ -16,8 +16,9 @@ block content
   h2(class="indexHeader")
   div(id="questionsContainer")
     each question in questions
+     a(href=`/questions/${question.id}` class="questionLink")
       div(class="question")
-        a(href=`/questions/${question.id}` class="questionLink") Q: #{question.title}
+        p Q: #{question.title}
         p= question.body
         div
           if(question.Answers)

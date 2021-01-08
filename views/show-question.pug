@@ -1,39 +1,36 @@
 extends layout.pug
 
 append head
-  //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/show-question.css")
   link(rel="stylesheet" href="/stylesheets/votes.css")
-
-  //- add page specific js
   script(src="/javascripts/votes.js" type="module" defer)
 
-include utils.pug
-
 block content
-    div(class="hidden" id="questionId")=question.id 
-    h4= question.title
-
-    p= question.body
-    div
-        each answer in answers
-            dt Answer:
-            dd= answer.body
-            div(class="voting-container" id=`${answer.id}`) votes
-                img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
-
-
-                div(class ='totalVotes')= upvotes  
- 
-                img(class="voteBtn downVote" src="/images/downvote-transparent.png")
-
-
-    if (userId === question.authorId)
-        div
-            p: a(href=`/questions/${question.id}/edit`) Edit this question?
-        div
-            p: a(href=`/questions/${question.id}/delete`) Delete this question?
-    if (userId !== question.authorId)
-        div
-            p: a(href=`/questions/${question.id}/answer`) Answer this question?
-     
+ h1 Question:
+ div(class="question-container")
+  div(id="questionId" class="hidden")= question.id
+  h4(class="question-title")= question.title
+  p(class="question-body")= question.body
+  if (userId === question.authorId)
+   p: a(href=`/questions/${question.id}/edit`) Edit
+   p: a(href=`/questions/${question.id}/delete`) Delete
+  else
+   p: a(href=`/questions/${question.id}/answer` class="question-answer") Answer
+ div(class="space")
+ if (answers.length >= 1)
+  h1 Answers:
+ div(class="answers-container")
+   each answer in answers
+    div(class="answer")
+     div(class="answer-top")
+      div(class="answer-body")= answer.body
+      div(class="voting-container" id=`${answer.id}`)
+        img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
+        div(class ='totalVotes')= upvotes
+        img(class="voteBtn downVote" src="/images/downvote-transparent.png")
+     div(class="answer-bottom")
+      if (userId === answer.authorId)
+       div(class="answer-links")
+        p: a(href=`/questions/${question.id}/answer/${answer.id}/edit`) Edit
+        p: a(href=`/questions/${question.id}/answer/${answer.id}/delete`) Delete
