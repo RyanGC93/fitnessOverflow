@@ -30,6 +30,7 @@ window.addEventListener("load", (event)=>{
             const  json  = await res.json()
             counter.innerHTML=json.totalVotes
         })
+        
         downvoteButton.addEventListener("click", async (event) =>{
             let res = await fetch(`http://localhost:8080/questions/${questionId}/answer/${answerId}/downvote`, {
                 method: "PATCH",
@@ -40,7 +41,4 @@ window.addEventListener("load", (event)=>{
             counter.innerHTML=json.totalVotes
         })
     })
-
-
-
 })

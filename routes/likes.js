@@ -5,10 +5,9 @@ const { asyncHandler, csrfProtection } = require('../utils/utils.js')
 const db = require('../db/models')
 const { check, validationResult } = require('express-validator');
 
-router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/upvote')
- 	.patch( asyncHandler(async (req,res)=>{
-		 const questionId = parseInt(req.params.id, 10)
-		  const answerId = parseInt(req.params.id2, 10)
+router.patch('/:id(\\d+)/answer/:id2(\\d+)/upvote', asyncHandler(async (req,res)=>{
+		const questionId = parseInt(req.params.id, 10)
+		const answerId = parseInt(req.params.id2, 10)
 	    const { userId } = req.session.auth
 
         // //   console.log(downvotes)
@@ -56,8 +55,7 @@ router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/upvote')
 		})
 	}))
 
-router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/vote')
- 	.get( asyncHandler(async (req,res)=>{
+router.get('/:id(\\d+)/answer/:id2(\\d+)/vote', asyncHandler(async (req,res)=>{
 		const questionId = parseInt(req.params.id, 10)
 		const answerId = parseInt(req.params.id2, 10)
 	    const { userId } = req.session.auth
@@ -84,8 +82,7 @@ router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/vote')
 		})  
 	  }))
 
-router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/downvote')
-	.patch( asyncHandler(async (req,res)=>{
+router.patch('/:id(\\d+)/answer/:id2(\\d+)/downvote', asyncHandler(async (req,res)=>{
 		const questionId = parseInt(req.params.id, 10)
 		 const answerId = parseInt(req.params.id2, 10)
 	   const { userId } = req.session.auth
@@ -134,7 +131,7 @@ router.route('/questions/:id(\\d+)/answer/:id2(\\d+)/downvote')
 	   })
 		 
 	 }))
-		.patch( asyncHandler(async (req,res)=>{
+router.patch('/:id(\\d+)/answer/:id2(\\d+)/downvote', asyncHandler(async (req,res)=>{
 		const questionId = parseInt(req.params.id, 10)
 		 const answerId = parseInt(req.params.id2, 10)
 	   const { userId } = req.session.auth
