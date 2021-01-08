@@ -13,3 +13,5 @@ router.get('/', requireAuth, asyncHandler(async (req,res) =>{
 }))
 
 module.exports = router;
+
+//const questions = await db.Question.findAll({ include: [db.User, db.Answer] , order: [['createdAt', 'DESC']]})

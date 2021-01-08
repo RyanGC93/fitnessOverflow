@@ -1,0 +1,19 @@
+.voting-container{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    font-size: 40px;
+    height: 400px
+}
+
+.upVote:hover{
+    transform:translateY(-10px);
+    cursor: pointer;
+}
+
+.downVote:hover{
+    transform:translateY(10px);
+    cursor: pointer;
+}
