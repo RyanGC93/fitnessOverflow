@@ -3,9 +3,12 @@
     flex-direction:column;
     text-align:center;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
     font-size: 40px;
-    height: 400px
+    height: 100px;
+    width: 100px;
+    position: relative;
+    padding: 10px;
 }
 
 .upVote:hover{
@@ -16,4 +19,20 @@
 .downVote:hover{
     transform:translateY(10px);
     cursor: pointer;
+}
+
+#questionId {
+    display: none;
+
+}
+
+.totalVotes {
+    margin: auto;
+    position:relative;
+    right: 13px;
+
+}
+
+.voteBtn {
+    width: 70%;
 }
