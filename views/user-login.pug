@@ -4,22 +4,25 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  link(rel='stylesheet' href='style.css')
+
+  include utils.pug
   link(rel="stylesheet" href="/stylesheets/login.css")
   //- add page specific js
   script(src="/javascripts/demo-login.js" type="module" defer)
 #main
-  form(action='#')
-    .label login form
-    div(class="ourIconHolder")
+  div(class="ourIconHolder")
       div
       img(class="ourIcon" src="/pictures/logoTransparent.png", alt="Fitness Overflow")
-    h2(class="ourheader") Fitness Overflow
+  h2(class="ourheader") Fitness Overflow
+  form(action='/users/login' method='post')
+    .label login form
+      +validationErrorSummary(errors)
       form(class="auth-form" action='/users/login' method='post')
+      input(type='hidden' name='_csrf' value=csrfToken)
       .username
-        input(id="email" type='text' placeholder='email')
+        input(id="email" type='text' placeholder='email' )
       .password
-        input(id="password" type='password' name="password" placeholder='password')
+        input(id="password" type='password' name="password"  placeholder='password')
       button(type='submit') login
       div
       a(href='/users/signup' class="linked") Sign up?
