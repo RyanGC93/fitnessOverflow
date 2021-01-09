@@ -1,27 +1,17 @@
 doctype html
 html
   head
-      block head
-        title="Fitness Overflow"
-        //- link(rel='stylesheet' href='/stylesheets/reset.css')
-        //- link(rel='stylesheet' href='/stylesheets/index.css')
-        link(rel='stylesheet' href='/stylesheets/layout.css')
-        link(rel="stylesheet" href="/stylesheets/reset.css")
+    block head
+      title="Fitness Overflow"
+      link(rel='stylesheet' href='/stylesheets/layout.css')
+      link(rel="stylesheet" href="/stylesheets/reset.css")
   body
-    if locals.authenticated
-          .navbar
-            span(class="navbar-1")
-              p(class="nav-link-1") Welcome #{user.username}!
-            span(class="navbar-1")
-              p(class="nav-link-1") Fitness Overflow
-            span(class="navbar-2")
-              form(class="auth-form" action='/users/logout' method='post')
-               button(class="btn logout" type='submit') Logout
-    else
-        .navbar
-          span(class="navbar-1")
-            p(class="nav-link-1") Fitness Overflow
-          span(class="navbar-2")
-            a(href='/users/login' class="nav-link-1") Login
-            a(href='/users/signup' class="nav-link-1") Register
-    block content
+    .navbar
+      div(class="header")
+       a(href=`/` )
+        img(src="/images/Cool Text - Fitness Overflow 373431043286713.png" class="nav-link-2")
+      div(class="logout-bar")
+       p(class="nav-link-1") #{user.username}
+       form(action='/users/logout' method='post')
+        button(type='submit') Logout
+block content

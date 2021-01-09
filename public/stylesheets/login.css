@@ -1,13 +1,18 @@
 .btn {
-    padding:0.5rem; 
+    padding:0.5rem;
     margin-top: 35px;
     border-radius: 0.5rem;
     border: 1px solid black;
     font-size: 1rem;
     width: 60%;
+    color: black;
 }
 
-
+body {
+    background-image: url(../images/pexels-lukas-669576.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
 .container {
 	position:absolute;
     top: 10vh;
@@ -16,12 +21,19 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-	 height:80vh;
+	 height:90vh;
     width: 40%;
     margin: auto;
     padding: 1rem;
-    background: linear-gradient(to bottom, rgba(146, 135, 187, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)
-    
+    background: linear-gradient(to bottom, rgba(66, 94, 255, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)
+
+}
+
+
+
+* {
+  color: rgba(212, 212, 212, 0.9);
+  font-size: 105%
 }
 
 
@@ -29,6 +41,7 @@ input {
     padding: 0.25rem;
     border: 1px solid grey;
     border-radius: 0.25rem;
+    color: black;
 }
 
 
@@ -36,30 +49,32 @@ input {
 .logo, .title{
   position:relative;
   width: 20vw;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
   max-height: 100px
 }
 .title {
 	width: 100%;
-	text-align: center; 
-	font-size: 2em; 
+	text-align: center;
+  font-size: 2em;
+  padding-bottom: 10px;
+  color: black;
 }
 
 
 .form-group {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    /* width: 80%; */
+    margin: auto;
 }
-
-
 
   .linked {
     width:400px;
     margin:auto;
     margin-top: 0px;
     text-align: center;
+    text-decoration: none;
   }
 
 .svg-icon{
@@ -69,7 +84,7 @@ input {
   overflow: visible;
 }
 
-.emailLogin--row, .password--row, .login-btn, .account--row, .remember--checkbox{
+.btn, .emailLogin--row, .password--row, .login-btn, .account--row, .remember--checkbox{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +101,7 @@ button:hover{
     -ms-transition: background-color 500ms linear;
     transition: background-color 500ms linear;
     cursor:pointer;
-    
+
 }
 
 a:hover{

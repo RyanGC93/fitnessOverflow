@@ -39,7 +39,7 @@ h1 {
     padding-top: 5px;
     border-radius: 10px;
     margin-top: 10px;
-    background-color: rgb(212, 212, 212);
+    background-color: rgba(66, 94, 255, 0.8);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 115%;
     overflow: auto;
@@ -64,13 +64,10 @@ h1 {
 .navbar2 {
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 65%;
     margin:auto;
     align-items: center;
     display: flex;
     justify-content: space-between;
 }
 
-.logout{
-    height: 50%;
-}

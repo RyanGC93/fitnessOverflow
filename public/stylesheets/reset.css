@@ -25,3 +25,9 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+body {
+    background-image: url(../images/pexels-lukas-669576.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
