@@ -8,7 +8,11 @@
     color: black;
 }
 
-
+body {
+    background-image: url(../images/pexels-lukas-669576.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
 .container {
 	position:absolute;
     top: 10vh;
@@ -17,7 +21,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-	 height:50vh;
+	 height:90vh;
     width: 40%;
     margin: auto;
     padding: 1rem;
@@ -25,11 +29,7 @@
 
 }
 
-body {
-    background-image: url(../images/pexels-lukas-669576.jpg);
-    background-size: contain;
-    background-attachment: fixed;
-}
+
 
 * {
   color: rgba(212, 212, 212, 0.9);
