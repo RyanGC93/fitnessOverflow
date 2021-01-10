@@ -83,17 +83,16 @@ Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able
 
 ## Feature Highlights
 
-### Highlight One
+### Ajax Based Voting on Answers
 
-Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able to browse, ask,search, answer and vote on fitness and health related questions. The site uses User-based session authentication to interact with the website and access these features. 
+- Users can vote on answers which via handled by ajax
+- A fetch request is made to the server which will update votes on the server and return a json object so the DOM reflects the change
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-### Highlight Two
+### Ajax based search
 
-Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able to browse, ask,search, answer and vote on fitness and health related questions. The site uses User-based session authentication to interact with the website and access these features. 
+- A fetch request is made using the input of our search bar to make an api request to the server using the search route to query the database and returning results that title matches the search criteria and updating the DOM using AJAX.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 ## Project Challenges
 
@@ -103,19 +102,95 @@ Fitness Overflow is a fitness and health clone of Stack Overflow. Users are able
 
 ## Code Snippets
 
+### Code Snippet: API route for upvote/downvote
+```js
+window.addEventListener("load", (event)=>{
+    let questionId = document.getElementById('questionId').innerText
 
-### Code Snippet #1
+    let votingContainers = document.querySelectorAll(".voting-container")
+
+    votingContainers.forEach(voteContainer =>{
+        let answerId = voteContainer.id
+	// code removed for brevity
+ 	}
+	// code removed for brevity
+        upvoteButton.addEventListener("click", async (event) =>{
+            let res = await fetch(`/questions/${questionId}/answer/${answerId}/upvote`, {
+                method: "PATCH",
+                headers:
+                {'Content': "application/json"}
+            })
+            const  json  = await res.json()
+            counter.innerHTML=json.totalVotes
+        })
+})
+
+router.patch('/:id(\\d+)/answer/:id2(\\d+)/downvote', asyncHandler(async (req,res)=>{
+		const questionId = parseInt(req.params.id, 10)
+		const answerId = parseInt(req.params.id2, 10)
+	   const { userId } = req.session.auth
+
+	   // //   console.log(downvotes)
+	   
+	   let existingVote = await db.Vote.findOne({where: {
+		   userId,
+		   answerId
+	   }})
+	   if(existingVote){
+		   await existingVote.destroy()
+	   }
+
+	   const vote = await db.Vote.build({
+		   userId,
+		   answerId,
+		   voteType: "upvote"
+	   })
+	   
+	   await vote.save()
+
+	   const upvotes = await db.Vote.findAll({
+		   where: {
+		   answerId,
+		   voteType: "upvote"
+		   }
+	   })
+	   const downvotes = await db.Vote.findAll({
+		   where: {
+		   answerId,
+		   voteType: "downvote"
+		   }
+	   })
+
+	   let totalUpVotes= upvotes.length
+	   let totalDownVotes= downvotes.length
+	   
+	   let totalVotes = totalUpVotes - totalDownVotes
+
+	   res.json({
+		   title: 'Question',
+		   totalUpVotes,
+		   totalDownVotes,
+		   totalVotes,
+		   upvotes
+	   })
+   }))
+```
+### Code Snippet: API Route For Search Functionality 
 ```js
 
+router.get('/', requireAuth, asyncHandler(async (req,res) =>{
+    const queryTerm = req.query.search
+    const questions = await db.Question.findAll({include: [db.User, db.Answer], order: [['createdAt', 'DESC']], where: { title: { [Op.iLike]: `%${queryTerm}%` } } })
+    res.json({questions})
+}))
 ```
-### Code Snippet #2
-```js
 
-```
-### Code Snippet #3
-```js
+### Project Challenges
+1. Implementing the upvote/downvote functionality
+   - The challenge we encountered when implementing the upvote/down feature is getting the necessary information to make a fetch request.(the answer id and question id) We overcame this particular challenge by creating unique IDs that can be reference for each answer and using the id to pass the information.
+2. The git workflow
+   - The gitworkflow involving branching, merging branches and pull requests was diffcult at first because we werent use to this type of workflow. To overcome this challenge we took our time and consulted with each other to make sure that each movement for this workflow was correct 
 
-```
 
 ### Built With
 
@@ -198,12 +273,9 @@ Project Link: [https://github.com/RyanGC93/fitnessOverflow](https://github.com/R
 
 
 
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-### Code Review Contributors
-* [Chris Oney]()
-* [Ed ]()
-* []()
+<!-- ACKNOWLEDGEMENTS --
+
+
 
 
 
