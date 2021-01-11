@@ -1,4 +1,3 @@
-//- extends layout.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/login.css")
@@ -16,7 +15,7 @@ block content
     +field('Email', 'email', user.email)
     +field('Password', 'password', user.password, 'password')
     +field('Confirm Password', 'confirmPassword', '', 'password')
-  div()
-    button(class="btn" type='submit') Signup
     div
-    p: a(href='/users/login' class="linked") Already have an account?
+      button(class="btn" type='submit') Signup
+    div
+     p: a(href='/users/login' class="linked") Already have an account?
