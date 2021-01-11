@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "authorId"
     } )
     Question.hasMany(models.Answer, {
-      foreignKey: "questionId"
+      foreignKey: "questionId",
+      onDelete: 'cascade',
+      hooks: true,
     } )
   };
   return Question;
