@@ -11,7 +11,7 @@ html
        a(href=`/` )
         img(src="/images/Cool Text - Fitness Overflow 373431043286713.png" class="nav-link-2")
       div(class="logout-bar")
-       p(class="nav-link-1") #{user.username}
+       p(class="nav-link-1") #{user? user.username : "welcome"}
        form(action='/users/logout' method='post')
         button(type='submit') Logout
 block content
