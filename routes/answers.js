@@ -12,12 +12,25 @@ const { requireAuth } = require('../utils/auth')
 router.get('/:id(\\d+)/answer', requireAuth, csrfProtection, asyncHandler (async(req, res) => {
     const questionId = parseInt(req.params.id, 10)
     const { userId } = req.session.auth
+    let voteByUser = db.Vote.findOne({
+        where: {
+            userId: userId
+        }
+    })
+    let voted = "no"
+    if(voteByUser){
+        if(voteByUser.voteType === "up"){
+            voted = "up";
+        }
+    }
+
     const question = await db.Question.findByPk(questionId)
     const answer = db.Answer.build()
     res.render('answer-question', {
         title: `Answer question ${question.id}`,
         answer,
         question,
+        voted,
         csrfToken: req.csrfToken()
     })
 }))
