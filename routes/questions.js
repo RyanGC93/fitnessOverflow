@@ -119,15 +119,16 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     console.log("answers looks like", answers)
     for(let i = 0; i < answers.length; i++){
         console.log("Looking at answer", answers)
-        let voteByUser = db.Vote.findOne({
+        let voteByUser = await db.Vote.findOne({
             where: {
                 userId: userId,
                 answerId: answers[i].dataValues.id
             }
         })
         answers[i].voted = "no"
+        console.log("Here is the vote", voteByUser)
         if(voteByUser){
-            if(voteByUser.voteType === "up"){
+            if(voteByUser.voteType === "upvote"){
                 answers[i].voted = "up"
             }
             else{
