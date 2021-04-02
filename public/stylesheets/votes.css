@@ -35,12 +35,5 @@
 
 .voteBtn {
     width: 70%;
-}
-
-.upVoted{
-    background-color: red;
-}
-
-.downVoted{
-    background-color: blue;
+    height: 40px;
 }
