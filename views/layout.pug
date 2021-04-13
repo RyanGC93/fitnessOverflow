@@ -13,5 +13,5 @@ html
       div(class="logout-bar")
        p(class="nav-link-1") #{user? user.username : "welcome"}
        form(action='/users/logout' method='post')
-        button(type='submit') Logout
+        button(class="logout-button" type='submit') Logout
 block content
