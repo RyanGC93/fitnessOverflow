@@ -5,17 +5,35 @@ append head
 include utils.pug
 
 block content
- .container
-  image(class="logo" src="/pictures/logoTransparent.png")
-  h2(class="title") Signup
-  +validationErrorSummary(errors)
-  form(class="auth-form" action='/users/signup' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Username', 'username', user.username)
-    +field('Email', 'email', user.email)
-    +field('Password', 'password', user.password, 'password')
-    +field('Confirm Password', 'confirmPassword', '', 'password')
-    div
-      button(class="btn" type='submit') Signup
-    div
-     p: a(href='/users/login' class="linked") Already have an account?
+ .container-signup
+    form(class="auth-form" action='/users/signup' method='post')
+      +validationErrorSummary(errors)
+      image(class="logo" src="/pictures/lifting.png")
+        div(class="title") Signup
+      input(type='hidden' name='_csrf' value=csrfToken)
+      div(class='signup--row')
+        input(type="text" id="username" name="username" placeholder="Username")
+      div(class='signup--row')
+        input(type="text" id="email" name="email" placeholder="Email")
+      div(class="signup--row")
+        input(type="password" id="password" name="password" placeholder="Password")
+      div(class="signup--row")
+        input(type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password")
+      div(class='login-btn')
+        button(class="btn" type='submit' ) Signup
+      div(class="account--row")
+        a(href='/users/login' class="linked") Already have an account?
+
+
+
+    //- image(class="logo" src="/pictures/lifting.png")
+    //- div(class="title") Signup
+    //- input(type='hidden' name='_csrf' value=csrfToken)
+    //- +field('', 'username', user.username, 'Username')
+    //- +field('', 'email', user.email, "Email")
+    //- +field('', 'password', user.password, 'password', "Password")
+    //- +field('', 'Password', 'confirmPassword', '', 'password', 'Confirm Password')
+    //- div
+    //-   button(class="btn" type='submit') Signup
+    //- div
+    //-  p: a(href='/users/login' class="linked") Already have an account?

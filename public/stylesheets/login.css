@@ -1,4 +1,4 @@
-.btn {
+.btn, .btn--login {
   padding: 0.5rem;
   margin-top: 10px;
   border-radius: 0.4rem;
@@ -7,6 +7,9 @@
   width: 264px;
   color: black;
   position: relative;
+}
+
+.btn--login {
   right: 3px;
 }
 
@@ -16,7 +19,7 @@ body {
   background-attachment: fixed;
 }
 
-.container {
+.container, .container-signup {
   position: absolute;
   top: 5vh;
   display: block;
@@ -31,6 +34,14 @@ body {
   background-color: rgba(66, 94, 255, 0.8);
   border-radius: 10px;
   border: 2px solid black;
+}
+
+.container {
+  height: 70%;
+}
+
+.container-signup {
+  height: 80%;
 }
 
 * {
@@ -89,6 +100,10 @@ input {
 .emailLogin--row, .password--row {
   position: relative;
   right: 15px;
+  margin-top: 10px;
+}
+
+.signup--row {
   margin-top: 10px;
 }
 
