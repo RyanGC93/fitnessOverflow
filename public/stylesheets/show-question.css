@@ -25,6 +25,12 @@
     font-size: 115%;
 }
 
+.question-links {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+}
+
 .space {
     padding: 15px;
 }
@@ -57,7 +63,6 @@ h1 {
 .answer-body {
     font-size: 115%;
 }
-
 
 .button:hover {
     background-color: #b2b8bd;

@@ -13,8 +13,9 @@ block content
   h4(class="question-title")= question.title
   p(class="question-body")= question.body
   if (userId === question.authorId)
-   p: a(href=`/questions/${question.id}/edit`) Edit
-   p: a(href=`/questions/${question.id}/delete`) Delete
+    div(class='question-links')
+      p: a(href=`/questions/${question.id}/edit`) Edit
+      p: a(href=`/questions/${question.id}/delete`) Delete
   else
    p: a(href=`/questions/${question.id}/answer` class="question-answer") Answer
  div(class="space")
