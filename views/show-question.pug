@@ -26,9 +26,15 @@ block content
      div(class="answer-top")
       div(class="answer-body")= answer.body
       div(class="voting-container" id=`${answer.id}`)
-        img(class=`voteBtn upVote ${answer.id}` src="/images/upvote-transparent.png")
+        if(answer.voted === "up")
+          img(class=`voteBtn upVote ${answer.id} upVoted` src="/images/upvoted.png")
+        else
+          img(class=`voteBtn upVote ${answer.id}` src="/images/up.png")
         div(class ='totalVotes')= upvotes
-        img(class="voteBtn downVote" src="/images/downvote-transparent.png")
+        if(answer.voted === "down")
+          img(class="voteBtn downVote downVoted" src="/images/downvoted.png")
+        else 
+          img(class="voteBtn downVote" src="/images/down.png")
      div(class="answer-bottom")
       if (userId === answer.authorId)
        div(class="answer-links")

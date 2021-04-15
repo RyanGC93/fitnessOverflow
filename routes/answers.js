@@ -12,6 +12,8 @@ const { requireAuth } = require('../utils/auth')
 router.get('/:id(\\d+)/answer', requireAuth, csrfProtection, asyncHandler (async(req, res) => {
     const questionId = parseInt(req.params.id, 10)
     const { userId } = req.session.auth
+    
+
     const question = await db.Question.findByPk(questionId)
     const answer = db.Answer.build()
     res.render('answer-question', {

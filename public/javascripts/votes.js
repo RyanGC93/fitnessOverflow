@@ -29,6 +29,8 @@ window.addEventListener("load", (event)=>{
             })
             const  json  = await res.json()
             counter.innerHTML=json.totalVotes
+            upvoteButton.src = "/images/upvoted.png"
+            downvoteButton.src = "/images/down.png"
         })
 
         downvoteButton.addEventListener("click", async (event) =>{
@@ -39,6 +41,8 @@ window.addEventListener("load", (event)=>{
             })
             const  json  = await res.json()
             counter.innerHTML=json.totalVotes
+            upvoteButton.src = "/images/up.png"
+            downvoteButton.src = "/images/downvoted.png"
         })
     })
 })

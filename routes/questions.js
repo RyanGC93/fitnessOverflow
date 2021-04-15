@@ -116,6 +116,28 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     const { userId } = req.session.auth
     const question = await db.Question.findByPk(questionId)
     const answers = await db.Answer.findAll({ where: { questionId: questionId } })
+    console.log("answers looks like", answers)
+    for(let i = 0; i < answers.length; i++){
+        console.log("Looking at answer", answers)
+        let voteByUser = await db.Vote.findOne({
+            where: {
+                userId: userId,
+                answerId: answers[i].dataValues.id
+            }
+        })
+        answers[i].voted = "no"
+        console.log("Here is the vote", voteByUser)
+        if(voteByUser){
+            if(voteByUser.voteType === "upvote"){
+                answers[i].voted = "up"
+            }
+            else{
+                answers[i].voted = "down"
+            }
+        }
+
+    }
+
     const downvotes = await db.Vote.findAll({ where: { voteType: "downvote" } })
     const upvotes = await db.Vote.findAll({ where: { voteType: "upvote" } })    
     res.render('show-question', { title: `Question ${questionId}`, question, answers, csrfToken: req.csrfToken(), userId })
