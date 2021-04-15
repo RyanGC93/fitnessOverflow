@@ -1,8 +1,8 @@
-.question-container{
+.question-container {
     box-sizing: border-box;
     border: 1px solid black;
     width: 65%;
-    margin:auto;
+    margin: auto;
     padding: 15px;
     padding-top: 5px;
     border-radius: 10px;
@@ -25,7 +25,6 @@
     font-size: 115%;
 }
 
-
 .space {
     padding: 15px;
 }
@@ -37,12 +36,11 @@ h1 {
     font-size: 200%;
 }
 
-
-.answer{
+.answer {
     box-sizing: border-box;
     border: 1px solid black;
     width: 65%;
-    margin:auto;
+    margin: auto;
     padding: 15px;
     padding-top: 5px;
     border-radius: 10px;
@@ -60,10 +58,8 @@ h1 {
     font-size: 115%;
 }
 
-/* .answer-top {
-    display: flex;
-    a} */
 
-.answer-bottom {
-
+.button:hover {
+    background-color: #b2b8bd;
+    cursor: pointer;
 }

@@ -11,8 +11,8 @@ block content
     div(class="search-bar")
       input(type="text" class="search" name="search" id="search" placeholder="Search...")
       button(type='button' id="searchButton" ) Search for Questions
-    a(href="/questions/ask")
-      input(type='button' value="Ask a Question")
+    a( href="/questions/ask")
+      input(class="button" type='button' value="Ask a Question")
   h2(class="indexHeader")
   div(id="questionsContainer")
     each question in questions

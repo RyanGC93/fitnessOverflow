@@ -114,3 +114,10 @@ input {
     background-color: rgba(66, 94, 255, 0.8);
     transform: translate(-50%, -50%)
 }
+
+
+a:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: b2b8bd;
+}
