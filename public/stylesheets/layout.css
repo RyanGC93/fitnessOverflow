@@ -1,21 +1,29 @@
 .navbar {
     display: flex;
     width: 65%;
-    margin:auto;
+    margin: auto;
     align-items: center;
-    position:relative;
+    position: relative;
     /* justify-content: center; */
 }
 
 .nav-link-1 {
     font-weight: bold;
     position: absolute;
-    bottom: 13px;
+    bottom: 20px;
     right: 0px;
 }
 
-.header {
+.logout-button {
+    /* padding: 5px 0px; */
+    margin: 5px 0px;
+}
 
+.header {
+    /* position: relative;
+    top: 20px; */
+    padding-top: 15px;
+    padding-bottom: 5px;
 }
 
 .nav-link-2 {
@@ -27,7 +35,7 @@
 }
 
 .logout-bar {
-    position:absolute;
+    position: absolute;
     right: 0px;
     bottom: 4px;
 }

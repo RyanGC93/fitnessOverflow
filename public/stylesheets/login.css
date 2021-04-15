@@ -1,116 +1,131 @@
-.btn {
-    padding:0.5rem;
-    margin-top: 35px;
-    border-radius: 0.5rem;
-    border: 1px solid black;
-    font-size: 1rem;
-    width: 60%;
-    color: black;
+.btn, .btn--login {
+  padding: 0.5rem;
+  margin-top: 10px;
+  border-radius: 0.4rem;
+  border: 1px solid black;
+  font-size: 1rem;
+  width: 264px;
+  color: black;
+  position: relative;
+}
+
+.btn--login {
+  right: 3px;
 }
 
 body {
-    background-image: url(../images/pexels-lukas-669576.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+  background-image: url(../images/pexels-lukas-669576.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+.container, .container-signup {
+  position: absolute;
+  top: 5vh;
+  display: block;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70%;
+  width: 40%;
+  margin: auto;
+  padding: 1rem;
+  background-color: rgba(66, 94, 255, 0.8);
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
 .container {
-	position:absolute;
-    top: 10vh;
-    display:block;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-	 height:90vh;
-    width: 40%;
-    margin: auto;
-    padding: 1rem;
-    background: linear-gradient(to bottom, rgba(66, 94, 255, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)
-
+  height: 70%;
 }
 
-
+.container-signup {
+  height: 80%;
+}
 
 * {
-  color: rgba(212, 212, 212, 0.9);
-  font-size: 105%
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1.05em;
+  /* font-family: sans-serif; */
+  font-family: sans-serif;
 }
-
 
 input {
-    padding: 0.25rem;
-    border: 1px solid grey;
-    border-radius: 0.25rem;
-    color: black;
-}
-
-
-
-.logo, .title{
-  position:relative;
-  width: 20vw;
-  left: 50%;
-  transform: translateX(-50%);
-  max-height: 100px
-}
-
-.logo{
-  max-width: 100px;
-}
-
-.title {
-	width: 100%;
-	text-align: center;
-  font-size: 2em;
-  padding-bottom: 10px;
+  padding: 0.25rem;
+  border: 1px solid grey;
+  border-radius: 0.25rem;
   color: black;
 }
 
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    /* width: 80%; */
-    margin: auto;
+.logo, .title {
+  width: 20vw;
+  max-height: 100px
 }
 
-  .linked {
-    width:400px;
-    margin:auto;
-    margin-top: 0px;
-    text-align: center;
-    text-decoration: none;
-  }
+.logo {
+  max-width: 100px;
+  padding: 10px;
+}
 
-.svg-icon{
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  color: black;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.linked {
+  text-decoration: none;
+}
+
+.svg-icon {
   display: inline-block;
   width: 2rem;
   height: 1.4rem;
   overflow: visible;
 }
 
-.btn, .emailLogin--row, .password--row, .login-btn, .account--row, .remember--checkbox{
+.login-icon {
+  padding: 0px 6px;
+}
+
+.emailLogin--row, .password--row {
+  position: relative;
+  right: 15px;
+  margin-top: 10px;
+}
+
+.signup--row {
+  margin-top: 10px;
+}
+
+.login-btn {
+  width: 268px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width:100%
-}
-.emailLogin--row{
-	margin-top: 10h;
+  justify-content: center;
+  /* height: 50px; */
 }
 
-
-button:hover{
-	    background-color:#727F8C;
-    -webkit-transition: background-color 500ms linear;
-    -ms-transition: background-color 500ms linear;
-    transition: background-color 500ms linear;
-    cursor:pointer;
-
+.emailLogin--row {
+  margin-top: 10h;
 }
 
-a:hover{
-	cursor:pointer;
-	transform: scale(1.3);
-	color:blue;
+.auth-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.account--row {
+  margin-top: 15px;
 }

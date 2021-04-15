@@ -6,13 +6,14 @@ append head
 
 block content
     .container-delete
-        if (userId === answer.authorId)
-            div
-                p(class="alert-text") Are you sure you want to delete this answer?
-            div
+        div(class='error_and_form')
+            if (userId === answer.authorId)
                 form(action=`/questions/${questionId}/answer/${answer.id}/delete` method='post' class="forms")
                     input(type='hidden' name='_csrf' value=csrfToken)
-                    button(type='submit' class="btn") Delete Answer
-                    a(href='/' role='button') Cancel
-        else
-            p You are not authorized to delete this answer
+                    div(class="form-group")
+                        p(class="alert-text") Are you sure you want to delete this answer?
+                    div(class='buttons')
+                        button(type='submit' class="btn") Delete Answer
+                        a(href='/' role='button') Cancel
+            else
+                p You are not authorized to delete this answer

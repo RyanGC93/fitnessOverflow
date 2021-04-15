@@ -4,6 +4,7 @@ append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/login.css")
   //- add page specific js
+
   script(src="/javascripts/demo-login.js" type="module" defer)
 
 include utils.pug
@@ -12,16 +13,17 @@ block content
   .container
     form(class="auth-form" action='/users/login' method='post')
       +validationErrorSummary(errors)
-      image(class="logo" src="/pictures/logoTransparent.png")
+      //- image(class="logo" src="/pictures/logoTransparent.png")
+      image(class="logo" src="/pictures/lifting.png")
         div(class="title") Fitness Overflow
       input(type='hidden' name='_csrf' value=csrfToken)
       div(class='emailLogin--row')
-        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png')
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png' class="login-icon")
         input(type="text" id="email" name="email" placeholder="Email")
       div(class="password--row")
-        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png')
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png' class="login-icon")
         input(type="password" id="password" name="password" placeholder="Password")
       div(class='login-btn')
-        button(class="btn" type='submit' ) Login
+        button(class="btn--login" type='submit' ) Login
       div(class="account--row")
-        P: a(href='/users/signup' class="linked") Don't have an account?
+        a(href='/users/signup' class="linked") Don't have an account?

@@ -9,6 +9,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
@@ -30,4 +31,18 @@ body {
     background-image: url(../images/pexels-lukas-669576.jpg);
     background-size: cover;
     background-attachment: fixed;
+}
+
+button:hover {
+  background-color: #b2b8bd;
+  cursor: pointer;
+}
+
+
+
+input {
+  padding: 0.25rem;
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+  color: black;
 }

@@ -2,39 +2,44 @@ h1 {
     color: #555555;
 }
 
-.welcome{
+.welcome {
     display: flex;
     justify-content: center;
 }
 
-.indexHeader{
+.indexHeader {
     display: flex;
     justify-content: center;
 }
 
-.questionLink{
+.questionLink {
     /* color: blue;
     display: flex;
     justify-content: center; */
     text-decoration: none;
     display: block;
     width: 65%;
-    margin:auto;
+    margin: auto;
+}
+
+.button:hover {
+    background-color: #b2b8bd;
+    cursor: pointer;
 }
 
 /* .questionLink:not(:active) {
     transition: background-color 1000ms step-end;
 } */
 
-.questionLink:visited{
+.questionLink:visited {
     color: blueviolet;
 }
 
-.question{
-  box-sizing: border-box;
+.question {
+    box-sizing: border-box;
     border: 1px solid black;
     width: 100%;
-    margin:auto;
+    margin: auto;
     padding: 15px;
     padding-top: 5px;
     border-radius: 10px;
@@ -45,8 +50,8 @@ h1 {
     overflow: auto;
 }
 
-.question:hover{
-  border: 3px solid black;
+.question:hover {
+    border: 3px solid black;
 }
 
 .question:active {
@@ -54,10 +59,10 @@ h1 {
 }
 
 .questionLink:hover {
-      width: 68%
+    width: 68%
 }
 
-.info{
+.info {
     text-align: right;
 }
 
@@ -65,9 +70,8 @@ h1 {
     display: flex;
     flex-direction: row;
     width: 65%;
-    margin:auto;
+    margin: auto;
     align-items: center;
     display: flex;
     justify-content: space-between;
 }
-
