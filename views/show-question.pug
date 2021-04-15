@@ -24,7 +24,6 @@ block content
    each answer in answers
     div(class="answer")
      div(class="answer-top")
-      div(class="answer-body")= answer.body
       div(class="voting-container" id=`${answer.id}`)
         if(answer.voted === "up")
           img(class=`voteBtn upVote ${answer.id} upVoted` src="/images/upvoted.png")
@@ -33,8 +32,9 @@ block content
         div(class ='totalVotes')= upvotes
         if(answer.voted === "down")
           img(class="voteBtn downVote downVoted" src="/images/downvoted.png")
-        else 
+        else
           img(class="voteBtn downVote" src="/images/down.png")
+      div(class="answer-body")= answer.body
      div(class="answer-bottom")
       if (userId === answer.authorId)
        div(class="answer-links")

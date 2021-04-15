@@ -1,23 +1,26 @@
 .voting-container{
     display:flex;
     flex-direction:column;
-    text-align:center;
+    align-items: center;
     justify-content:center;
-    align-items:flex-start;
+    /* align-items:flex-start; */
     font-size: 40px;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 20px;
     position: relative;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+
 }
 
+
 .upVote:hover{
-    transform:translateY(-10px);
+    transform:translateY(-3px);
     cursor: pointer;
 }
 
 .downVote:hover{
-    transform:translateY(10px);
+    transform:translateY(3px);
     cursor: pointer;
 }
 
@@ -27,13 +30,25 @@
 }
 
 .totalVotes {
-    margin: auto;
-    position:relative;
-    right: 13px;
+    /* margin: auto;
+    position:relative; */
+    /* right: 13px; */
+    padding: 4px;
 
 }
 
 .voteBtn {
-    width: 70%;
-    height: 40px;
+    width: 20px;;
+    height: 20px;
+}
+
+.answer-top{
+    display: flex;
+    align-items: center;
+}
+
+.answer-links {
+    display:flex;
+    width: 80px;
+    justify-content: space-between;
 }

@@ -17,7 +17,7 @@ block content
           label(for="body" class="label") Answer
           textarea(id="body" name="body" class="input")= answer.body
         div(class='buttons')
-          button(type='submit' class="btn") Edit Answer
           a(href=`/questions/${question.id}`) Cancel
+          button(type='submit' class="btn") Edit Answer
  else
    p You are not authorized to edit this answer
