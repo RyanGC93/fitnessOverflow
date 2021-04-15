@@ -9,14 +9,15 @@ append head
 block content
  if (userId === answer.authorId)
   .container
-    +validationErrorSummary(errors)
-    form(action=`/questions/${question.id}/answer/${answer.id}/edit` method='post' class="forms")
-      input(type='hidden' name='_csrf' value=csrfToken)
-      div(class="form-group")
-        label(for="body" class="label") Answer
-        textarea(id="body" name="body" class="input")= answer.body
-      div
-        button(type='submit' class="btn") Edit Answer
-        a(href=`/questions/${question.id}`) Cancel
+    div(class='error_and_form')
+      +validationErrorSummary(errors)
+      form(action=`/questions/${question.id}/answer/${answer.id}/edit` method='post' class="forms")
+        input(type='hidden' name='_csrf' value=csrfToken)
+        div(class="form-group")
+          label(for="body" class="label") Answer
+          textarea(id="body" name="body" class="input")= answer.body
+        div(class='buttons')
+          button(type='submit' class="btn") Edit Answer
+          a(href=`/questions/${question.id}`) Cancel
  else
    p You are not authorized to edit this answer
