@@ -78,6 +78,7 @@
     width: 60%;
     justify-content: space-between;
     padding: 10px 0px;
+    
     /* position: relative;
     top: -20px; */
 
@@ -102,7 +103,7 @@ input {
 }
 
 .container-delete {
-    width: 20%;
+    width: 50%;
     height: 50%;
     margin: auto;
     padding: 1rem;
@@ -112,7 +113,11 @@ input {
     left: 50%;
     top: 50%;
     background-color: rgba(66, 94, 255, 0.8);
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
