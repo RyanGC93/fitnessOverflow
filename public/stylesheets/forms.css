@@ -1,20 +1,31 @@
-
 .container {
     width: 50%;
     height: 50%;
     margin: auto;
     padding: 1rem;
     border: 1px solid black;
-    border-radius: 2px;
+    border-radius: 10px;
     position: absolute;
     left: 50%;
     top: 50%;
-
     background-color: rgba(66, 94, 255, 0.8);
-    transform: translate(-50%,-50%)
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-
+.error_and_form {
+    width: 60%;
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    /* position: relative;
+    top: -20%; */
+    height: 80%;
+}
 
 .form-group {
     display: flex;
@@ -26,8 +37,8 @@
     width: 60%;
 } */
 
-.btn{
-    padding:0.2rem;
+.btn {
+    padding: 0.2rem;
     border-radius: 0.2rem;
     border: 1px solid black;
     font-size: 1rem;
@@ -36,6 +47,16 @@
 .forms {
     /* width:100px; */
     /* margin:auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* position: relative;
+    top: -20%; */
+    width: 100%;
+    height: 50%;
+    /* height: 80%; */
+    /* justify-content: space-between; */
 }
 
 .title {
@@ -46,7 +67,20 @@
 
 .label {
     padding: 0.5rem;
-    font-size: 130%;
+    font-size: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    padding: 10px 0px;
+    /* position: relative;
+    top: -20px; */
+
 }
 
 .input {
@@ -60,7 +94,6 @@ textarea {
     resize: none;
 }
 
-
 input {
     padding: 0.25rem;
     border: 1px solid grey;
@@ -68,9 +101,7 @@ input {
     width: 100%;
 }
 
-
 .container-delete {
-
     width: 20%;
     height: 50%;
     margin: auto;
@@ -80,7 +111,6 @@ input {
     position: absolute;
     left: 50%;
     top: 50%;
-
     background-color: rgba(66, 94, 255, 0.8);
-    transform: translate(-50%,-50%)
+    transform: translate(-50%, -50%)
 }

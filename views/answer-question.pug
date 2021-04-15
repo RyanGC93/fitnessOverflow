@@ -8,12 +8,13 @@ append head
 
 block content
   .container
-    +validationErrorSummary(errors)
-    form(action=`/questions/${question.id}/answer` method='post' class="forms")
-      input(type='hidden' name='_csrf' value=csrfToken)
-      div(class='form-group')
-        label(for="body" class="label") Answer
-        textarea(id="body" name="body" class="input")= answer.body
-      div
-        button(type='submit' class="btn") Post Answer
-        a(href=`/questions/${question.id}`) Cancel
+    div(class='error_and_form')
+      +validationErrorSummary(errors)
+      form(action=`/questions/${question.id}/answer` method='post' class="forms")
+        input(type='hidden' name='_csrf' value=csrfToken)
+        div(class='form-group')
+          label(for="body" class="label") Answer
+          textarea(id="body" name="body" class="input")= answer.body
+        div(class='buttons')
+          a(href=`/questions/${question.id}`) Cancel
+          button(type='submit' class="btn") Post Answer
