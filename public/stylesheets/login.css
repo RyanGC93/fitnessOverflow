@@ -3,7 +3,7 @@
   margin-top: 10px;
   border-radius: 0.4rem;
   border: 1px solid black;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   width: 264px;
   color: black;
   position: relative;
@@ -34,6 +34,11 @@ body {
   background-color: rgba(66, 94, 255, 0.8);
   border-radius: 10px;
   border: 2px solid black;
+}
+
+button:hover {
+  background-color: #b2b8bd;
+  cursor: pointer;
 }
 
 .container {
