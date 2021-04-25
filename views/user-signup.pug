@@ -1,6 +1,37 @@
 
 append head
   link(rel="stylesheet" href="/stylesheets/login.css")
+  //- add page specific js
+  title="Fitness Overflow"
+  link(rel="shortcut icon" href="/lifting.ico")
+  link(rel='stylesheet' href='/stylesheets/layout.css')
+  link(rel="stylesheet" href="/stylesheets/reset.css")
+  meta(charset="UTF-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+<!-- HTMLMeta Tags -->
+  title(Fitness Overflow)
+  meta(name="description"
+        content="Ask or answer fitness-related questions and vote on first-rate solutions with this simple yet effective Stack Overflow clone. ")
+
+<!-- facebookMeta Tags -->
+  meta(property="og:url" content="https://fitness-overflow.herokuapp.com/")
+  meta(property="og:type" content="website")
+  meta(property="og:title" content="Fitness Overflow")
+  meta(property="og:description"
+        content="Ask or answer fitness-related questions and vote on first-rate solutions with this simple yet effective Stack Overflow clone. ")
+  meta(property="og:image" content="https://live.staticflickr.com/65535/51137574747_bcc3051625_b.jpg")
+
+<!-- twitter Meta Tags -->
+  meta(name="twitter:card" content="summary_large_image")
+  meta(property="twitter:domain" content="fitness-overflow.herokuapp.com")
+  meta(property="twitter:url" content="https://fitness-overflow.herokuapp.com/")
+  meta(name="twitter:title" content="Fitness Overflow")
+  meta(name="twitter:description"
+        content="Ask or answer fitness-related questions and vote on first-rate solutions with this simple yet effective Stack Overflow clone. ")
+  meta(name="twitter:image" content="https://live.staticflickr.com/65535/51137574747_bcc3051625_b.jpg")
+
+  script(src="/javascripts/demo-login.js" type="module" defer)
 
 include utils.pug
 
