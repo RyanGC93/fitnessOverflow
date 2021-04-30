@@ -1,6 +1,5 @@
 .btn {
     padding:0.5rem;
-    margin-top: 35px;
     border-radius: 0.5rem;
     border: 1px solid black;
     font-size: 1rem;
@@ -42,6 +41,7 @@ input {
     border: 1px solid grey;
     border-radius: 0.25rem;
     color: black;
+    width:100%
 }
 
 
