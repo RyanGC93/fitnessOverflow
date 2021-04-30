@@ -226,6 +226,13 @@ This is an example of how to list things you need to use the software and how to
    npm install
    ```
 
+### Running Locally
+
+1. To Start The Project Locally
+   ```sh
+   npm start
+   ```
+*The Project is served and can be seen on localhost:8080*
 
 
 <!-- USAGE EXAMPLES -->
