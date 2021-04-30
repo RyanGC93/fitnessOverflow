@@ -71,7 +71,6 @@ router.get('/:id(\\d+)/answer/:id2(\\d+)/edit', requireAuth, csrfProtection,
         const question = await db.Question.findByPk(questionId);
         const answer = await db.Answer.findByPk(answerId);
         const { userId } = req.session.auth
-        console.log("answer:",answer)
         res.render('edit-answer', {
             title: 'Edit Answer',
             question,

@@ -130,8 +130,6 @@ router.patch('/:id(\\d+)/answer/:id2(\\d+)/downvote', asyncHandler(async (req,re
 		const answerId = parseInt(req.params.id2, 10)
 	   const { userId } = req.session.auth
 
-	   // //   console.log(downvotes)
-	   
 	   let existingVote = await db.Vote.findOne({where: {
 		   userId,
 		   answerId
