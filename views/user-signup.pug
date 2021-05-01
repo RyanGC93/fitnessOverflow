@@ -7,7 +7,7 @@ include utils.pug
 block content
  .container
   image(class="logo" src="/pictures/logoTransparent.png")
-  h2(class="title") Signup
+  div(class="title") Signup
   +validationErrorSummary(errors)
   form(class="auth-form" action='/users/signup' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
@@ -16,6 +16,5 @@ block content
     +field('Password', 'password', user.password, 'password')
     +field('Confirm Password', 'confirmPassword', '', 'password')
     div
-      button(class="btn" type='submit') Signup
-    div
-     p: a(href='/users/login' class="linked") Already have an account?
+      button(class="btn centered" type='submit') Signup
+    p: a(href='/users/login' class="linked") Already have an account?

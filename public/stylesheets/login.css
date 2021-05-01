@@ -5,14 +5,13 @@ body {
   background-attachment: fixed;
 }
 .container {
-  position:absolute;
-  top: 10vh;
   display:block;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  height:90vh;
+  position: absolute;
+  top: 50%;  
+  left: 50%;
+  height: 80vh; 
+  transform: translate(-50%, -50%);
+
   width: 40%;
   margin: auto;
   padding: 1rem;
@@ -24,37 +23,33 @@ body {
 
 * {
   color: rgba(212, 212, 212, 0.9);
-  font-size: 105%
+  font-size: 4vh;
 }
 
 
 input {
-  padding: 0.25rem;
+  padding: 5px;
   border: 1px solid grey;
   border-radius: 0.25rem;
   color: black;
   width:100%;
-  font-size: 3vw;
+  font-size: 4vh;
 }
 
 
 
 .logo, .title{
   position:relative;
-  width: 20vw;
+  width: 20vh;
   left: 50%;
   transform: translateX(-50%);
-  max-height: 100px
-}
-
-.logo{
-  max-width: 100px;
+  /* max-height: 100px */
 }
 
 .title {
   width: 100%;
 	text-align: center;
-  font-size: 2em;
+  font-size: 5vh;
   padding-bottom: 10px;
   color: black;
 }
@@ -68,11 +63,12 @@ input {
 }
 
 .linked {
-  width:400px;
-  margin:auto;
-  margin-top: 0px;
+  position:absolute;
+  bottom: 0;
+  width:80%;
   text-align: center;
   text-decoration: none;
+  margin-bottom: 30px;
 }
 
 .svg-icon{
@@ -108,10 +104,10 @@ a:hover{
 	color:blue;
 }
 .btn {
-    padding:0.5rem;
+    padding:5px;
     border-radius: 0.5rem;
     border: 1px solid black;
-    font-size: 1rem;
+    font-size: 4vh;
     width: 60%;
     color: black;
 }
@@ -119,3 +115,4 @@ a:hover{
 .centered {
   margin-left: 20%;
 }
+
