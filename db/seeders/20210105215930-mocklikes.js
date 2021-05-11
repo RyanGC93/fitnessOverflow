@@ -1,6 +1,12 @@
 
 'use strict';
-const faker = require("faker");
+
+
+function randomNum() { // min and max included 
+  let min = 2
+  let max = 20
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -20,7 +26,7 @@ module.exports = {
       let vote= i
       let newVotes = {
         userId: vote,
-        answerId: vote,
+        answerId: randomNum(),
         voteType:  voteTypes[Math.floor(Math.random() * 2)],
         createdAt: new Date(),
         updatedAt: new Date(),
