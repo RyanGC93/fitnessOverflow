@@ -33,7 +33,6 @@ append head
         content="Ask or answer fitness-related questions and vote on first-rate solutions with this simple yet effective Stack Overflow clone. ")
   meta(name="twitter:image" content="https://live.staticflickr.com/65535/51137574747_bcc3051625_b.jpg")
 
-  script(src="/javascripts/demo-login.js" type="module" defer)
 
 include utils.pug
 
@@ -53,5 +52,13 @@ block content
         input(type="password" id="password" name="password" placeholder="Password")
       div(class='login-btn')
         button(class="btn--login" type='submit' ) Login
+    form(class="auth-form" action='/users/login' method='post')
+      div(class='login-btn')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      input(type='hidden' id='email' name='email' value='demoUser@demo.com')
+      input(type='hidden' id='password' name='password' value='DemoPass123!')
+      div(class='login-btn--login')
+        button(class="btn" type='submit') Demo Login
       div(class="account--row")
-        a(href='/users/signup' class="linked") Don't have an account?
+        P: a(href='/users/signup' class="linked") Don't have an account?
+
