@@ -8,7 +8,6 @@ module.exports = {
 
       title: 'How often should I workout?',
       body: "Hello I was wondering how often I should workout to make sure im healthy?",
-      // The American College of Sports Medicine (ACSM) recommends getting 150 minutes of moderate intensity physical activity per week to achieve the health benefits, maintain current weight, and/or prevent weight gain.
       authorId: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -38,24 +37,139 @@ module.exports = {
         authorId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
-      } 
-   
-   ]
-  
-  
+      },
 
-    
-    for (let i = 1; i < 45; i++) {
-      let authorId = i
-      let newQuestions = {
-        title: faker.lorem.words(3),
-        body: faker.lorem.words(25),
-        authorId: authorId,
+      // ! New Questions
+      {
+        title: "How much Cardio?",
+        body: "I am getting into fitness and I was wondering how much cardio should i do ",
+
+        authorId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
-      };
-      questions.push(newQuestions)
-    }
+      },
+      {
+        title: "Best Cardio Equipment",
+        body: "When doing cardio what is the best equipment bike, elliptical or treadmill?",
+
+        authorId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Best way to get rid of belly fat",
+        body: "I have a gut and I was wondering what the best way to lose belly fat is",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "How to lose back fat?",
+        body: "What is the best way to lose back fat?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Weight Lose Plateau",
+        body: "Why am I plateauing my results after losing 20 lbs ",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Morning Workout",
+        body: "Best morning workout that give you energy for the rest of the day",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "How to build endurance",
+        body: "Whats the best way to build endurance",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Tips for fitness resistant people",
+        body: "What's your best tip for people who are having a hard time committing?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Personal Trainer Alternatives",
+        body: "What are some good workout options if you can't afford a personal trainer",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Rests Between Workouts",
+        body: "How long should people rest in between workouts?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Disclosing Medication",
+        body: "Should a personal trainer know all of the medications someone is on?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "How Important Is Nutrition",
+        body: "How important is nutrition if someone works out consistently?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Should I Work Out Under Stress?",
+        body: "If Im stressed out should I workout",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Obesity and Lifting, is it Safe",
+        body: "I am obese. Is it safe for me to workout?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Will weights make women bulky?",
+        body: "Should women lift weights if they don't want to get bulky looking?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Why do some people lose weight faster?",
+        body: "Is it true that some people naturally lose weight faster than others?",
+
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+   
+   ]
 
     return queryInterface.bulkInsert('Questions',questions, {});
   },
